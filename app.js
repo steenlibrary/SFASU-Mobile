@@ -8,7 +8,7 @@
  * @author   Michael Gillen <mlgillen@sfasu.edu>
  */
 
-var serverPath = 'http://library.sfasu.edu/mobile/data/index.php'
+var serverPath = 'http://library.sfasu.edu/mobile/data/index.php';
 var childBrowser;
 
 Ext.Loader.setConfig({
