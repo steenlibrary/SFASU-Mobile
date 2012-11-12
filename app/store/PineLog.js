@@ -2,10 +2,28 @@ Ext.define('SFASU.store.PineLog', {
     extend: 'Ext.data.Store',
 
     config: {
-        model: 'SFASU.model.PineLog',
+        fields: [
+			//'title',
+			{ name: 'title', type: 'string'},
+            //'content',
+			{ name: 'content', type: 'string'},
+            //'link',
+			{ name: 'link', type: 'string'},
+			{ name: 'author', type: 'string'},
+			{ name: 'thumbnail', type: 'string'},
+            //'publishedDate'
+			{ name: 'publishedDate', type: 'date', /*dateFormat: 'm/d/Y'*/ },
+			//{ name: 'publishedDate', type: 'date', dateFormat: 'l, F d, Y g:i:s A' },
+        ],
+
+		idProperty: 'link',
+		
 		//fields: ['title', 'content', 'link', 'publishedDate'],
-        autoLoad: false,
-        //sorters: 'publishedDate',
+        
+		autoLoad: false,
+        
+		//sorters: 'publishedDate',
+		
 		pageSize: 10,
 
 		grouper: {
@@ -18,13 +36,16 @@ Ext.define('SFASU.store.PineLog', {
 
         proxy: {
             type: 'jsonp',
-            //url: 'https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=50&q='
-			//		+ 'http://www.thepinelog.com/se/pine-log-rss-1.1609553',
-			url : 'http://library.sfasu.edu/mobile/pinelog_json.php',
 			
+			url : serverPath,
+			
+			extraParams: {
+	            feature: 'pinelog'
+	        },
+	
 			reader: {
 				type: 'json',
-				rootProperty: 'responseData.feed.entries'
+				rootProperty: ''
 			}
         }
     }

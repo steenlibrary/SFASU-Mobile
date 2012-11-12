@@ -3,13 +3,8 @@ Ext.define('SFASU.controller.Home.Feed', {
 
 	config: {
 		refs: {
-			//homescreen: 'homescreen',
-			//screen01: 'screen01',
-			//screen02: 'screen02',
-			//screen03: 'screen03',
-			//homescreenToolbar: 'homescreen toolbar',
-			//homeLogo: 'homescreen #homeLogo'
 			feed: 'feed',
+			feedDataview: 'feed dataview',
 			feedTitle: 'feed titlebar',
 			axe: 'feed [name=slidebutton]',
 			feedChild: 'feed panel',
@@ -17,21 +12,36 @@ Ext.define('SFASU.controller.Home.Feed', {
 		control: {
 			feed: {
 				pop: 'showAxe',
-				show: 'showFeed'
+				//show: 'showFeed'
 				//push: 'hideAxe'
 			},
 			'feed dataview': {
-				itemtap: 'feedAction'
+				itemtap: 'feedAction',
+				refresh: 'feedUpdated'
 			}
 		}
 	},
 	
-	showFeed: function() {
+	showAxe: function() {
+		if(this.getAxe()) {
+			this.getAxe().show();
+		}
+	},
+	
+	hideAxe: function() {
+		if(this.getAxe()) {
+			this.getAxe().hide();
+		}
+	},
+	
+	feedUpdated: function(dataview, eOpts) {
 		//Ext.getStore('Home.Feed').load();
+		console.log('feed updated');
+		//console.log(this.getFeedDataview());
 	},
 	
 	feedAction: function(list, index, element, record) {
-		console.log('feed item tapped');
+		//console.log('feed item tapped');
 		
 		switch(record.get('type')) {
 			case 'news':
@@ -69,23 +79,22 @@ Ext.define('SFASU.controller.Home.Feed', {
 				break;
 			case 'twitter':
 				console.log('Twitter');
-				Ext.util.openLink(record.get('link'));
-
+				//Ext.util.openLink(record.get('link'));
+			
+				this.hideAxe();
+				this.getFeed().push({
+					xtype: 'panel',
+					title: '@' + record.get('postedBy'),
+					html: '<img src="' + record.get('image') + '" style="float: left; padding-right: 5px;" />'
+						+ '<h3>@' + record.get('postedBy') + '</h3>'
+						+ '<h3>' + record.get('title') + '</h3>'
+						+ 'Posted: ' + Ext.Date.format(record.get('publishedDate'), 'g:i a l, F j, Y'),
+					scrollable: true,
+					styleHtmlContent: true
+				});
 				break;
 			default:
 				break;
 		}
-	},
-	
-	showAxe: function() {
-		if(this.getAxe()) {
-			this.getAxe().show();
-		}
-	},
-	
-	hideAxe: function() {
-		if(this.getAxe()) {
-			this.getAxe().hide();
-		}
-	},
+	}
 });

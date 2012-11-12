@@ -4,17 +4,19 @@ Ext.define('SFASU.store.Twitter', {
 	requires: ['Ext.DateExtras', 'Ext.Date'],
 
     config: {
-		//model: 'SFASU.model.News',
+	
 		fields: [
-			'id', 
+			//'id', 
 			'id_str', 
 			'from_user', 
 			'profile_image_url', 
-			'text', 
-			//'created_at',
+			'text',
 			{ name: 'created_at', type: 'date'}, 
 			'source'
 		],
+		
+		idProperty: 'id_str',
+		
         autoLoad: true,
 
 		grouper: {
@@ -26,6 +28,7 @@ Ext.define('SFASU.store.Twitter', {
         },
 
 		pageSize: 10,
+		
         proxy: {
             type: 'jsonp',
 
@@ -59,20 +62,24 @@ Ext.define('SFASU.store.Twitter', {
 					}
 					
 					var url = 'http://twitter.com/' 
-						+ tweet.get('from_user')
-						+ '/status/' 
-						+ tweet.get('id_str');
-						
+					+ tweet.get('from_user')
+					+ '/status/' 
+					+ tweet.get('id_str');
+					
+					if(Ext.os.is.Phone) {
+						var title = Ext.String.ellipsis(
+							tweet.get('text'), 
+							85, 	// Max character length
+							true	// Common word break
+						);
+					} else {
+						var title = tweet.get('text');
+					}
+							
 					feedStore.add({ 
 						//id: 'twitter_' + tweet.get('id_str'),
-						title: '@' + tweet.get('from_user') + ': <br/>'
-							+ '<h3>' 
-							+ Ext.String.ellipsis(
-								tweet.get('text'), 
-								85, 	// Max character length
-								true	// Common word break
-								)
-					 		+ '</h3>',
+						title: title,
+						postedBy: tweet.get('from_user'),
 						image: tweet.get('profile_image_url'),
 						publishedDate: tweet.get('created_at'),
 						link: url,
@@ -80,54 +87,7 @@ Ext.define('SFASU.store.Twitter', {
 					});
 					
 					feedStore.sync();
-					/*
-					var image = tweet.get('profile_image_url');
-					
-					var style = {
-						'background-image':'url("resources/images/twitter-icon.png")',
-						'background-repeat':'no-repeat',
-						'background-position':'center center',
-						'background-size': '150%',
-						'color': '#fff'
-					};
-					
-					items.push({
-						xtype: 'panel',
-						//cls: 'feedTwitter',
-						style: style,
-						scrollable: false,
-						
-						items:[{
-							xtype: 'panel',
-							cls: 'homeCaption',
-							html: '<img src="' + tweet.get('profile_image_url') + '" style="float: left; padding-right: 3px;"/> '
-								+ '@' + tweet.get('from_user') + ': <br/>'
-								+ '<h3>' 
-								+ Ext.String.ellipsis(
-									tweet.get('text'), 
-									100, 	// Max character length
-									true	// Common word break
-									)
-							 	+ '</h3>'
-						}],
-						listeners: {
-						    tap: {
-						        fn: function() {
-									console.log('twitter panel tap');
-									var url = 'http://twitter.com/' 
-										+ tweet.get('from_user')
-										+ '/status/' 
-										+ tweet.get('id_str');
-									Ext.util.openLink(url);
-								},
-						        element: 'element'
-						    }
-						}
-					});
-					*/
 				});
-				//Ext.getCmp('social_carousel').setItems(items);
-				//Ext.getCmp('social_carousel').setActiveItem(0);
 			}
 		}
     }

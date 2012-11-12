@@ -11,8 +11,9 @@ Ext.define('SFASU.store.Maps', {
 			'computer',
 			'athletic'
 		],
-			
-        //autoLoad: true,
+		
+		pageSize: 10,
+		
 		sorters: [
 			{
 				property: 'name',
@@ -26,11 +27,15 @@ Ext.define('SFASU.store.Maps', {
             }
         },
 
-		pageSize: 10,
         proxy: {
             type: 'jsonp',
-			url : 'http://library.sfasu.edu/mobile/maps_json.php',
+
+			url : serverPath,
 			
+			extraParams: {
+	            feature: 'maps'
+	        },
+	
 			reader: {
 				type: 'json',
 				rootProperty: ''

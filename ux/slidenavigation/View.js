@@ -203,7 +203,7 @@ Ext.define('Ext.ux.slidenavigation.View', {
         var me = this,
             parent = el.down(config.selector);
 
-        if (parent) {
+        if (Ext.os.is.Phone && parent) {
 			//console.log('slideButton');
 			//return parent.insert(0, Ext.merge(me.slideButtonDefaults, config));
             return parent.add(Ext.merge(me.slideButtonDefaults, config));
@@ -342,7 +342,7 @@ Ext.define('Ext.ux.slidenavigation.View', {
 
 		//var containerWidth = Ext.getBody().dom.clientWidth - this.config.list.width;
 		if(Ext.os.is.Tablet) {
-			this.container.setWidth(containerWidth);
+			//this.container.setWidth(containerWidth);
 		}
 		//this.container.setMasked(false);
     },
@@ -491,16 +491,28 @@ Ext.define('Ext.ux.slidenavigation.View', {
      */
     createContainer: function() {
 		//var clientWidth = Ext.getBody().dom.clientWidth;
+
+		var containerX, style;
+		if(!Ext.os.is.Phone) {
+			containerX = this.config.list.width;
+			style = 'width: ' 
+				+ (Ext.getBody().dom.clientWidth - this.config.list.width) 
+				+ 'px; height: 100%; position: absolute; opacity: 1; z-index: 2';
+		} else {
+			containerX = 0;
+			style = 'width: 100%; height: 100%; position: absolute; opacity: 1; z-index: 2';
+		}
+		
         return Ext.create('Ext.Container', Ext.merge({}, this.config.container, {
             docked: 'left',
             cls: 'x-slidenavigation-container',
-            style: 'width: 100%; height: 100%; position: absolute; opacity: 1; z-index: 2',
+            style: style,
 			//width: clientWidth,
             layout: 'card',
             draggable: {
                 direction: 'horizontal',
                 constraint: {
-                    min: { x: 0, y: 0 },
+                    min: { x: containerX, y: 0 },
                     max: { x: this.config.list.maxDrag || Math.max(screen.width, screen.height), y: 0 }
                 },
                 listeners: {

@@ -8,6 +8,7 @@
  * @author   Michael Gillen <mlgillen@sfasu.edu>
  */
 
+var serverPath = 'http://library.sfasu.edu/mobile/data/index.php'
 var childBrowser;
 
 Ext.Loader.setConfig({
@@ -17,14 +18,10 @@ Ext.Loader.setConfig({
 //<debug>
 Ext.Loader.setPath({
     'Ext': 'sdk/src',
-	//'Sqlite': 'sqlite',
 	'Ext.ux': './ux',
-	
     'SFASU': 'app'
 });
 //</debug>
-
-//Ext.require('SFASU.util.InitSQLite');
 
 Ext.util.openLink = function(href) {
 	if(childBrowser) {
@@ -62,13 +59,13 @@ Ext.application({
     ],
 	
 	controllers: [
-		//'Main',
-		
 		'Alerts',
 		
 		'AARC.Main',
 		'AARC.Groups',
 		'AARC.WalkIn',
+
+		'About',
 		
 		'Athletics.Main',
 		'Athletics.News',
@@ -90,14 +87,8 @@ Ext.application({
 		'Directory.Person.Main',
 		'Directory.Person.Contact',
 		
-		//'Home.Main',
 		'Home.Feed',
-		'Home.News',
-		'Home.Athletics',
-		'Home.Videos',
-		'Home.WhatsNew',
-		//'Home.Screen01',
-		//'Home.Screen03',
+		//'Home.WhatsNew',
 		
 		'Library.Main',
 		'Library.Catalog',
@@ -141,7 +132,7 @@ Ext.application({
 		'AARC.WalkIn',
 		
 		'Athletics.News',
-		'Athletics.Events',
+		//'Athletics.Events',
 		'Athletics.Sport.Bio',
 		
 		'Alerts',
@@ -159,9 +150,9 @@ Ext.application({
 		
 		'News', 
 		
-		'PineLog',
+		//'PineLog',
 		
-		'Facebook',
+		//'Facebook',
 		'Twitter',
 		
 		'Videos',
@@ -170,21 +161,14 @@ Ext.application({
 	],
 	
     views: [
-		//'Home.Main',
 		'Home.SlideMenu',
 		'Home.Feed',
-		
-		//'Home.Screen01',
-		//'Home.Screen02',
-		
-		//'Home.News',
-		//'Home.Athletics',
-		//'Home.Social',
-		//'Home.Videos',
 		
 		'AARC.Main',
 		'AARC.Groups',
 		'AARC.WalkIn',
+		
+		'About',
 		
 		'Athletics.Main',
 		'Athletics.News',
@@ -217,7 +201,7 @@ Ext.application({
 		'Library.Catalog',
 		'Library.Account',
 		'Library.Hours',
-		'Library.Map',
+		//'Library.Map',
 		'Library.Staff',
 		
 		'Maps',
@@ -256,10 +240,6 @@ Ext.application({
         '144': 'resources/icons/Icon~ipad@2x.png'
     },
 
-	onReady: function() {
-		//SFASU.util.InitSQLite.initDb();
-	},
-
     isIconPrecomposed: true,
 
     startupImage: {
@@ -279,7 +259,6 @@ Ext.application({
         Ext.fly('appLoadingIndicator').destroy();
 
         // Initialize the main view
-        // Ext.Viewport.add(Ext.create('SFASU.view.Main'));
 		Ext.Viewport.add(Ext.create('SFASU.view.Home.SlideMenu'));
 		//onDeviceReady();
 		if(window.plugins) {
@@ -287,6 +266,10 @@ Ext.application({
 			//childBrowser.showWebPage("http://google.com");
 		}
     },
+
+	onReady: function() {
+		
+	},
 
     onUpdated: function() {
         Ext.Msg.confirm(

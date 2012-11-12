@@ -3,6 +3,7 @@ Ext.define('SFASU.store.Home.Feed', {
 
     config: {
 		storeId: 'Home.Feed',
+		
 		fields: [
 			'id',
 			'title', 
@@ -11,6 +12,7 @@ Ext.define('SFASU.store.Home.Feed', {
 			'imageOrientation',
 			'link', 
 			//'publishedDate',
+			'postedBy',
 			{ name: 'publishedDate', type: 'date' },
 			//{ name: 'publishedDate', type: Ext.data.Types.DATE },
 			'type'

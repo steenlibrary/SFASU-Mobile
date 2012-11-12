@@ -3,9 +3,10 @@ Ext.define('SFASU.store.AARC.WalkIn', {
 
     config: {
 		storeId: 'AARC.WalkIn',
+		
 		fields: ['id', 'course', 'times', 'room'],
+		
         autoLoad: false,
-        sorters: 'course',
 
         grouper: {
             groupFn: function(record) {
@@ -15,8 +16,13 @@ Ext.define('SFASU.store.AARC.WalkIn', {
 
         proxy: {
             type: 'jsonp',
-			url : 'http://library.sfasu.edu/mobile/aarc_walkin_json.php',
 			
+			url : serverPath,
+			
+			extraParams: {
+	            feature: 'aarc_walkin'
+	        },
+	
 			reader: {
 				type: 'json',
 				rootProperty: ''

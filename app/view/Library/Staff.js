@@ -24,11 +24,15 @@ Ext.define('SFASU.view.Library.Staff', {
 		            	}
 		        	},
 
-					//pageSize: 10,
 		        	proxy: {
 		            	type: 'jsonp',
-		            	url: 'http://library.sfasu.edu/mobile/directory_json.php?search&filter=library',
-
+		            	url: 'http://library.sfasu.edu/mobile/directory_json.php',
+		
+						extraParams: {
+				            search: 'true',
+							filter: 'library'
+				        },
+				
 						reader: {
 							type: 'json',
 							rootProperty: ''

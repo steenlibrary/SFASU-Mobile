@@ -31,10 +31,13 @@ Ext.define('SFASU.store.Videos', {
 		pageSize: 10,
         proxy: {
             type: 'jsonp',
-            //url: 'https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q='
-			//		+ 'http://www.sfasu.edu/xml/1742.xml',
-			url : 'http://library.sfasu.edu/mobile/videos_json.php',
+
+			url : serverPath,
 			
+			extraParams: {
+	            feature: 'videos'
+	        },
+	
 			reader: {
 				type: 'json',
 				rootProperty: ''
@@ -48,7 +51,6 @@ Ext.define('SFASU.store.Videos', {
 				var limit = 5;
 
 				Ext.each(data, function(video, index) {
-					
 					
 					if((index >= limit) || !video.get('thumbnail')) return;
 					
@@ -73,29 +75,7 @@ Ext.define('SFASU.store.Videos', {
 					
 						feedStore.sync();
 					}
-					
-					/*
-					var image = video.get('thumbnail');
-					var style = {
-						'background-image':'url("'+image+'")',
-						'background-repeat':'no-repeat',
-						'background-position':'center center',
-						'background-height': '100%',
-						'color': '#fff'
-					};
-					items.push({
-						xtype: 'panel',
-						style: style,
-						items: [{
-							xtype: 'panel',
-							cls: 'homeCaption',
-							html: video.get('title')
-						}]
-					});
-					*/
 				});
-				//Ext.getCmp('videos_carousel').setItems(items);
-				//Ext.getCmp('videos_carousel').setActiveItem(0);
 			}
 		}
     }

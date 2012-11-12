@@ -6,16 +6,21 @@ Ext.define('SFASU.store.Athletics.Sport.Bio', {
 		storeId: 'Athletics.Sport.Bio',
 
         proxy: {
+
             type: 'jsonp',
+
             url: 'http://library.sfasu.edu/mobile/athletics_bio_json.php',
+
 			extraParams: {
 	            bio_id: '',
 				details: ''
 	        },
+	
 			reader: {
 				type: 'json',
 				rootProperty: ''
 			}
+			
         },
 		listeners: {
 			beforeload: function() {

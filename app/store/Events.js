@@ -3,8 +3,7 @@ Ext.define('SFASU.store.Events', {
 
     config: {
         model: 'SFASU.model.Events',
-        //autoLoad: true,
-        //sorters: 'publishedDate',
+
 		pageSize: 10,
 
 		grouper: {
@@ -17,13 +16,16 @@ Ext.define('SFASU.store.Events', {
 
         proxy: {
             type: 'jsonp',
-			//url: 'https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=50&q='
-			//		+ 'http://www.sfasu.edu/xml/333.asp',
-			url: 'http://library.sfasu.edu/mobile/events_json.php',
 			
+			url : serverPath,
+			
+			extraParams: {
+	            feature: 'events'
+	        },
+	
 			reader: {
 				type: 'json',
-				rootProperty: 'responseData.feed.entries'
+				rootProperty: ''
 			}
         }
     }

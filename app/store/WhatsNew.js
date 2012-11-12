@@ -14,8 +14,13 @@ Ext.define('SFASU.store.WhatsNew', {
 
         proxy: {
             type: 'jsonp',
-			url : 'http://library.sfasu.edu/mobile/whatsnew_json.php',
 			
+			url : serverPath,
+			
+			extraParams: {
+	            feature: 'whatsnew'
+	        },
+	
 			reader: {
 				type: 'json',
 				rootProperty: ''
@@ -24,8 +29,6 @@ Ext.define('SFASU.store.WhatsNew', {
 		
 		listeners: {
 			load: function(store, data, eOpts) {
-				//Ext.getCmp('news').setBadgeText(data.length);
-				//console.log(data);
 				var items = [];
 
 				Ext.each(data, function(picture) {
@@ -47,13 +50,9 @@ Ext.define('SFASU.store.WhatsNew', {
 						listeners: {
 						    tap: {
 						        fn: function() {
-									console.log('whats new panel tap');
-									console.log(picture.get('link'));
-									
 									if(picture.get('link') != '') {
 										Ext.util.openLink(picture.get('link'));
 									}
-									//console.log(this.config.get('id'));
 								},
 						        element: 'element'
 						    }

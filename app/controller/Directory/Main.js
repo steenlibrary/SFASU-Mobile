@@ -12,6 +12,7 @@ Ext.define('SFASU.controller.Directory.Main', {
 		control: {
 			directory: {
 				pop: 'showAxe',
+				show: 'showDirectory'
 				//push: 'hideAxe'
 			},
 			'directory_emergency button': {
@@ -39,7 +40,7 @@ Ext.define('SFASU.controller.Directory.Main', {
 		}
 	},
 	
-	launch: function() {
+	showDirectory: function() {
 		Ext.getStore('Maps').load({
             scope: this
         });
@@ -54,7 +55,7 @@ Ext.define('SFASU.controller.Directory.Main', {
         });
     },
 
-	onSearchesStoreLoad: function() {
+	onFavoritesStoreLoad: function() {
         var search = Ext.getStore('Directory.Favorites').getAt(0);
 
         if (search) {

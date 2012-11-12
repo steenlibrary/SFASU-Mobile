@@ -28,8 +28,8 @@ Ext.define('SFASU.view.Videos', {
 
 	        emptyText: '<p class="no-searches">There are currently no published videos.</p>',
 
-	        itemTpl: '<p><img src="{thumbnail}" class="thumbnail" width="30%"><strong>{title}</strong>'
-				+'<br /><br />{duration}</p>',
+	        itemTpl: '<p style="display:block"><img src="{thumbnail}" class="thumbnail" width="25%"><strong>{title}</strong>'
+				+'<br /><br />{duration}<br /><br /><br /><br /></p>',
 		}]
     }
 });

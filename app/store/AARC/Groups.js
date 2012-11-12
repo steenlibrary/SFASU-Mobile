@@ -3,22 +3,28 @@ Ext.define('SFASU.store.AARC.Groups', {
 
     config: {
 		storeId: 'AARC.Groups',
-		//model: 'SFASU.model.Directory.Departments',
+
 		fields: ['course', 'section', 'professor', 'leader', 'times', 'room'],
+
         autoLoad: false,
-        sorters: 'course',
+
+		//pageSize: 10,
 
         grouper: {
             groupFn: function(record) {
                 return record.get('course');
             }
         },
-
-		//pageSize: 10,
+		
         proxy: {
             type: 'jsonp',
-			url : 'http://library.sfasu.edu/mobile/aarc_sigroups_json.php',
+
+			url : serverPath,
 			
+			extraParams: {
+	            feature: 'aarc_sigroups'
+	        },
+	
 			reader: {
 				type: 'json',
 				rootProperty: ''

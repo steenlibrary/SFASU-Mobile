@@ -49,9 +49,11 @@ $include-default-icons: false;
 @include pictos-iconmask('broadcast');
 @include pictos-iconmask('bug');
 @include pictos-iconmask('calendar2');
+@include pictos-iconmask('chat3');
 @include pictos-iconmask('compose');
 @include pictos-iconmask('flag');
 @include pictos-iconmask('headphones');
+@include pictos-iconmask('help');
 @include pictos-iconmask('home');
 @include pictos-iconmask('info');
 @include pictos-iconmask('list');
@@ -236,81 +238,6 @@ $include-default-icons: false;
     background-size: 100% 100%;
 }
 
-
-.btnAction {
-	background: url(../images/news-75.png) !important;
-	
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 100% 100%;
-	
-	.x-button-label {
-		color: #fff;
-		margin-top: 3.0em;
-	}
-	
-	.x-button-pressed {
-	  background: none;
-	  background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 24, color-stop(0%, rgba(182, 225, 255, 0.7)), color-stop(100%, rgba(182, 225, 255, 0)));
-	  background-image: -webkit-radial-gradient(rgba(182, 225, 255, 0.7), rgba(182, 225, 255, 0) 24px);
-	  background-image: radial-gradient(rgba(182, 225, 255, 0.7), rgba(182, 225, 255, 0) 24px);
-	}
-}
-
-.btnTraditions {
-	background: url(../images/traditions.jpeg) !important;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 100% 100%;
-	
-	.x-button-label {
-		color: #fff;
-		margin-top: 3.0em;
-	}
-	
-	.x-button-pressed {
-	  background: none;
-	  background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 24, color-stop(0%, rgba(182, 225, 255, 0.7)), color-stop(100%, rgba(182, 225, 255, 0)));
-	  background-image: -webkit-radial-gradient(rgba(182, 225, 255, 0.7), rgba(182, 225, 255, 0) 24px);
-	  background-image: radial-gradient(rgba(182, 225, 255, 0.7), rgba(182, 225, 255, 0) 24px);
-	}
-}
-
-.btnLibrary {
-	background: url(../images/library-75.png) !important;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 100% 100%;
-}
-
-.btnDirectory {
-	background: url(../images/directory-75.png) !important;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 100% 100%;
-}
-
-.btnAthletics {
-	background: url(../images/athletics-75.png) !important;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 100% 100%;
-}
-
-.btnAction2
-{
- //padding: 5px !important;
- width: 75px;
- height: 75px;
- -webkit-mask-image: url('../images/news-75.png') !important;
- //-webkit-mask-size: 75px 75px;
- //-webkit-mask-repeat: no-repeat;
- //-webkit-mask-origin: content;
- //background-image: -webkit-gradient(linear, 0% 0%, 0% 100%,
- // from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0.9))) !important;
- //background-color: #000000 !important;
-}
-
 .x-slidenavigation-container.x-dragging,
         .x-slidenavigation-container.open {
             /**
@@ -337,6 +264,7 @@ $include-default-icons: false;
 	//font-size: 0.7em;
 	font-size: 60%;
     color: #fff;
+
     text-shadow: rgba(255,255,255,.2) 0 1px 0;
 
 	h2 {
@@ -347,21 +275,11 @@ $include-default-icons: false;
 	}
 }
 
-.homeCaption2 {
-	background-repeat:no-repeat;
-	background-position:center center;
-	background-size: 100% 100%;
-	background-image: -webkit-gradient(
-		linear, right top, left top, from(rgba(0, 0, 0, 1.0)),
-			to(rgba(0, 0, 0, 0))
-	);
-	//background-image: -webkit-linear-gradient(top, #444444, #999999);
-	padding: 10px;
-	font-weight: bold;
-	font-size: 0.7em;
-    color: #fff;
-	height: 100%;
-    text-shadow: rgba(255,255,255,.2) 0 1px 0;
+.homeCaptionTablet {
+	font-size: 100%;
+	p {
+		//padding-top: 20%;
+	}
 }
 
 .feedTwitter {
@@ -369,13 +287,5 @@ $include-default-icons: false;
 	background-repeat: no-repeat;
 	background-position: right bottom;
 	background-size: 25%;
-	color: #fff;
-}
-
-.feedFacbook {
-	background-image: url(../images/facebook-icon.png) !important;
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: 100%;
 	color: #fff;
 }

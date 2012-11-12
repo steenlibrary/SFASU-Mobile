@@ -25,9 +25,11 @@ Ext.define("SFASU.view.Library.Main", {
 				{
 					xtype: 'library_hours'
 				},
+				/*
 				{
 					xtype: 'library_map'
 				},
+				*/
 				{
 					xtype: 'directory_list',
 					title: 'Staff',

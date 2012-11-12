@@ -39,7 +39,6 @@ Ext.define('SFASU.controller.Twitter', {
 	},
 	
 	showTweet: function(list, index, element, tweet) {
-		console.log('showTweet');
 		if(!this.getTweet()) {
 			this.hideAxe();
 			this.getSocial().push({

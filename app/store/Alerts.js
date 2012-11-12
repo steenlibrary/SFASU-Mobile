@@ -2,6 +2,7 @@ Ext.define('SFASU.store.Alerts', {
     extend: 'Ext.data.Store',
 
     config: {
+	
 		storeId: 'Alerts',
 		
 		fields: [
@@ -10,11 +11,16 @@ Ext.define('SFASU.store.Alerts', {
 		],
 			
         autoLoad: true,
+
         proxy: {
             type: 'jsonp',
 
-			url : 'http://library.sfasu.edu/mobile/campus_alert_json.php',
+			url : serverPath,
 			
+			extraParams: {
+	            feature: 'campus_alert'
+	        },
+	
 			reader: {
 				type: 'json',
 				rootProperty: ''
@@ -23,12 +29,10 @@ Ext.define('SFASU.store.Alerts', {
 		
 		listeners: {
 			load: function(store, records, successful, operation, eOpts) {
-				console.log("load");
+				//console.log("load");
 			},
 			refresh: function(store, data, eOpts) {
-				console.log("refresh");
-				console.log(data.length);
-				console.log(data);
+				//console.log("refresh");
 				
 				Ext.getCmp('alertButton').setBadgeText(data.length);
 				Ext.getCmp('alertButton').setHidden(false);

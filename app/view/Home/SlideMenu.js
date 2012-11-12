@@ -283,6 +283,18 @@ Ext.define("SFASU.view.Home.SlideMenu", {
 			items: [{
 				xtype: 'pinelog'
 			}]
+		},{
+			title: 'About the App',
+			//icon: 'resources/images/icons/pinelog-75.png',
+			group: 'More',
+			slideButton: {
+				selector: 'titlebar',
+				iconMask: true,
+				iconCls: 'axe'
+			},
+			items: [{
+				xtype: 'about'
+			}]
 		}]
     }
 });
