@@ -9,13 +9,15 @@ Ext.define('SFASU.store.Alerts', {
 			'status', 
 			'title'
 		],
+		
+		idProperty: 'title',
 			
         autoLoad: true,
 
         proxy: {
             type: 'jsonp',
 
-			url : serverPath,
+			url: 'http://library.sfasu.edu/mobile/data/index.php',
 			
 			extraParams: {
 	            feature: 'campus_alert'
@@ -28,12 +30,16 @@ Ext.define('SFASU.store.Alerts', {
         },
 		
 		listeners: {
+			addrecords: function(store, records, eOpts) {
+				console.log("add records");
+				Ext.getCmp('alertButton').setBadgeText(records.length);
+				Ext.getCmp('alertButton').setHidden(false);
+			},
+			
 			load: function(store, records, successful, operation, eOpts) {
-				//console.log("load");
+				console.log("load");
 			},
 			refresh: function(store, data, eOpts) {
-				//console.log("refresh");
-				
 				Ext.getCmp('alertButton').setBadgeText(data.length);
 				Ext.getCmp('alertButton').setHidden(false);
 			}

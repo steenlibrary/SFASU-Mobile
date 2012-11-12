@@ -30,7 +30,7 @@ Ext.define('SFASU.store.Maps', {
         proxy: {
             type: 'jsonp',
 
-			url : serverPath,
+			url: 'http://library.sfasu.edu/mobile/data/index.php',
 			
 			extraParams: {
 	            feature: 'maps'

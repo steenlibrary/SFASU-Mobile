@@ -8,8 +8,12 @@ Ext.define('SFASU.controller.About', {
 			supportName: 'about formpanel [name=name]',
 			supportEmail: 'about formpanel [name=email]',
 			supportComment: 'about formpanel [name=comment]',
+			gitHubButton: 'about [name=github]',
 		},
 		control: {
+			gitHubButton: {
+				tap: 'gitHubAction'
+			},
 			'about formpanel button': {
 				tap: 'sendSupport'
 			},
@@ -17,6 +21,10 @@ Ext.define('SFASU.controller.About', {
 				submit: 'sendSupport'
 			}
 		}
+	},
+	
+	gitHubAction: function(button, event, eOpts)  {		
+		Ext.util.openLink(button.config.url);
 	},
 
 	sendSupport: function() {

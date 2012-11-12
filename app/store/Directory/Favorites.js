@@ -19,18 +19,8 @@ Ext.define('SFASU.store.Directory.Favorites', {
 
 		proxy: {
 	        type: 'localstorage',
-	        id  : 'sfasu-DirectoryFavorites',
+	        id: 'sfasu-DirectoryFavorites',
 			clearOnPageLoad: false
 	    }
-/*
-		proxy: {
-			type: 'sqlitestorage',
-			//id: 'sfasu-DirectoryFavorites',
-			dbConfig: {
-				tablename: 'DirectoryFavorites',
-				dbConn: SFASU.util.InitSQLite.getConnection()
-			}
-		}
-*/
     }
 });

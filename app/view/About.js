@@ -4,35 +4,50 @@ Ext.define("SFASU.view.About", {
 	
     requires: [
         'Ext.TitleBar',
+		'Ext.field.Email',
     ],
 
 	xtype: 'about',
 	
     config: {
 		items: [{
+			
 			xtype: 'tabpanel',
+			
 			title: 'SFASU Mobile',
+			
 			iconCls: 'bookmarks',
 
 			tabBarPosition: 'bottom',
 
 	        items: [
 				{
-					xtype: 'panel',
+					xtype: 'container',
 					title: 'About',
 					iconCls: 'help',
 					styleHtmlContent: true,
-					html: '<p>SFASU Mobile was originally developed as a joint effort project'
-						+' between Ralph W. Steen Library Web Services, the Student'
-						+' Government Association, Web Development, and Dr. Steve'
-						+' Galatas. The project originated from a'
-						+' brainstorming session between SFASU attendees at the'
-						+' eCitzenship Conference in Detroit.  The eCitizenship'
-						+' Initiative at SFASU is sponsored by the American Democracy'
-						+' Project at SFASU.</p>'
-						+'<p>Version 2.0 was designed with both smartphones and tablets in mind.'
-						+' The source code of version 2.0 has been open sourced and is available'
-						+' on GitHub.</p>'
+					
+					items: [{
+						xtype: 'panel',
+						
+						html: '<p>SFASU Mobile was originally developed as a joint effort project'
+							+' between Ralph W. Steen Library Web Services, the Student'
+							+' Government Association, Web Development, and Dr. Steve'
+							+' Galatas. The project originated from a'
+							+' brainstorming session between SFASU attendees at the'
+							+' eCitzenship Conference in Detroit.  The eCitizenship'
+							+' Initiative at SFASU is sponsored by the American Democracy'
+							+' Project at SFASU.</p>'
+							+'<p>Version 2.0 was designed with both smartphones and tablets in mind.'
+							+' The source code of version 2.0 has been open sourced and is available'
+							+' on GitHub.</p><br/>'
+					},
+					{
+						xtype: 'button',
+						name: 'github',
+						text: 'View Source on GitHub',
+						url: 'https://github.com/steenlibrary/SFASU-Mobile'
+					}]
 				},
 				{
 					xtype: 'dataview',

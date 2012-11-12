@@ -13,9 +13,7 @@ Ext.define('SFASU.view.Radio.Listen', {
 		iconCls: 'play_black1',
 		items: [{
 			xtype: 'panel',
-			//posterUrl: 'resources/images/ksau.png',
-			//autoPause: false,
-			html: '<div style="align:center"><img src="resources/images/ksau.png" width="100%"/></div>'
+			html: '<div style="align:center"><img src="resources/images/ksau.png" height="80%"/></div>'
 		},
 		{
 			xtype: 'audio',
@@ -41,7 +39,6 @@ Ext.define('SFASU.view.Radio.Listen', {
 			items: [{
 				name: 'play',
 				iconCls: 'play2',
-				//text: 'Play'
 			},
 			{
 				xtype: 'spacer'

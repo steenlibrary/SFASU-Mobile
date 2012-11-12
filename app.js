@@ -54,6 +54,8 @@ Ext.util.email = function(email) {
 Ext.application({
     name: 'SFASU',
 
+ 	serverPath: 'http://library.sfasu.edu/mobile/data/index.php',
+
     requires: [
         'Ext.MessageBox'
     ],
@@ -150,9 +152,10 @@ Ext.application({
 		
 		'News', 
 		
-		//'PineLog',
+		'PineLog',
 		
 		//'Facebook',
+		
 		'Twitter',
 		
 		'Videos',

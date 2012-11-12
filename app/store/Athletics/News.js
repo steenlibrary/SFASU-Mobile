@@ -33,7 +33,7 @@ Ext.define('SFASU.store.Athletics.News', {
             type: 'jsonp',
             //url: 'https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=50&q='
 			//		+ 'http://sfajacks.cstv.com/headline-rss.xml',
-			url : 'http://library.sfasu.edu/mobile/athletics_news_json.php',
+			url: 'http://library.sfasu.edu/mobile/athletics_news_json.php',
 			
 			reader: {
 				type: 'json',

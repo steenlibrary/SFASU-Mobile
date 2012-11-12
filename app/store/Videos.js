@@ -11,7 +11,10 @@ Ext.define('SFASU.store.Videos', {
 		],
 			
         autoLoad: true,
-        //sorters: 'pubDate',
+
+        pageSize: 10,
+
+		//sorters: 'pubDate',
 		/*sorters: [
 			{
 				property: 'pubDate',
@@ -27,12 +30,11 @@ Ext.define('SFASU.store.Videos', {
 				return Ext.Date.format(record.get('publishedDate'), 'l, F j, Y');
             }
         },
-
-		pageSize: 10,
+		
         proxy: {
             type: 'jsonp',
 
-			url : serverPath,
+			url: 'http://library.sfasu.edu/mobile/data/index.php',
 			
 			extraParams: {
 	            feature: 'videos'

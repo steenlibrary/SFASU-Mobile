@@ -22,7 +22,7 @@ Ext.define('SFASU.store.News', {
         proxy: {
             type: 'jsonp',
 			
-			url : serverPath,
+			url: 'http://library.sfasu.edu/mobile/data/index.php',
 			
 			extraParams: {
 	            feature: 'news'
@@ -36,11 +36,18 @@ Ext.define('SFASU.store.News', {
 
 		listeners: {
 			refresh: function(store, data, eOpts) {
+				console.log('news: refresh');
 				//console.log(data);
 				//Ext.getCmp('news').setBadgeText(data.length);
 			},
 			
+			addrecords: function(store, records, eOpts) {
+				console.log('news: add records');
+			},
+			
 			load: function(store, data, eOpts) {
+				console.log('news: load');
+				
 				var feedStore = Ext.getStore('Home.Feed');
 				//feedStore.removeAll();
 				//console.log('news loaded');

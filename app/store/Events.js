@@ -17,7 +17,7 @@ Ext.define('SFASU.store.Events', {
         proxy: {
             type: 'jsonp',
 			
-			url : serverPath,
+			url: 'http://library.sfasu.edu/mobile/data/index.php',
 			
 			extraParams: {
 	            feature: 'events'

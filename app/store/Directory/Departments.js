@@ -15,7 +15,13 @@ Ext.define('SFASU.store.Directory.Departments', {
 
         proxy: {
             type: 'jsonp',
-			url : 'http://library.sfasu.edu/mobile/departments_json.php',
+			//url: 'http://library.sfasu.edu/mobile/departments_json.php',
+			
+			url: 'http://library.sfasu.edu/mobile/data/index.php',
+			
+			extraParams: {
+	            feature: 'departments'
+	        },
 			
 			reader: {
 				type: 'json',

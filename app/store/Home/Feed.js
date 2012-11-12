@@ -20,6 +20,10 @@ Ext.define('SFASU.store.Home.Feed', {
 		
 		idProperty: 'link',
 		
+		autoLoad: false,
+        //sorters: 'publishedDate',
+		pageSize: 10,
+		
 		grouper: {
             sortProperty: 'publishedDate',
 			direction: 'DESC',
@@ -32,12 +36,8 @@ Ext.define('SFASU.store.Home.Feed', {
         	{
             	property: 'publishedDate',
             	direction: 'DESC'
-            },
+            }
 		],
-		
-        autoLoad: false,
-        sorters: 'publishedDate',
-		pageSize: 10,
 
         proxy: {
 	        type: 'localstorage',
