@@ -3,14 +3,38 @@ Ext.define('SFASU.controller.Videos', {
 
 	config: {
 		refs: {
-			videos: 'videos',
-			video: 'videopane'
+			videos: 'videos_main',
+			video: 'videopane',
+			videoPlay: 'videopane img',
+			axe: 'videos_main [name=slidebutton]'
 		},
 		control: {
-			'videos list': {
-				itemtap: 'onVideoTap'
+			'videos_phone': {
+				itemtap: 'showVideo'
+			},
+			'videos_tablet': {
+				itemtap: 'showVideo'
+			},
+			videoPlay: {
+				tap: 'playVideo'
 			}
 		}
+	},
+	
+	showAxe: function() {
+		if(this.getAxe()) {
+			this.getAxe().show({type: 'fadeIn'});
+		}
+	},
+	
+	hideAxe: function() {
+		if(this.getAxe()) {
+			this.getAxe().hide({type: 'fadeOut'});
+		}
+	},
+	
+	playVideo: function() {
+		console.log('play video');
 	},
 	
 	onVideoTap: function(list, idx, el, record) {
@@ -29,21 +53,14 @@ Ext.define('SFASU.controller.Videos', {
 	},
 
 	showVideo: function(list, index, element, record) {
-		/*this.getVideos().push({
-			xtype: 'panel',
-			title: record.get('title'),
-			items: [{
-				xtype: 'video',
-				url: ['http://www.youtube.com/watch?v=' + record.get('id') + '&feature=player_embedded'],
-				loop: false,
-				posterUrl: record.get('thumbnail')
-			}]
-		});*/
+		if(!this.getVideo()) {
+			this.hideAxe();
 		
-		this.getVideos().push({
-			xtype: 'videopane',
-			title: record.get('title')
-		});
-		this.getVideo().setRecord(record);
+			this.getVideos().push({
+				xtype: 'videopane',
+				title: record.get('title')
+			});
+			this.getVideo().setRecord(record);
+		}
 	}
 });

@@ -11,9 +11,7 @@ Ext.define('SFASU.controller.Home.Feed', {
 		},
 		control: {
 			feed: {
-				pop: 'showAxe',
-				//show: 'showFeed'
-				//push: 'hideAxe'
+				pop: 'showAxe'
 			},
 			'feed dataview': {
 				itemtap: 'feedAction',
@@ -24,13 +22,13 @@ Ext.define('SFASU.controller.Home.Feed', {
 	
 	showAxe: function() {
 		if(this.getAxe()) {
-			this.getAxe().show();
+			this.getAxe().show({type: 'fadeIn'});
 		}
 	},
 	
 	hideAxe: function() {
 		if(this.getAxe()) {
-			this.getAxe().hide();
+			this.getAxe().hide({type: 'fadeOut'});
 		}
 	},
 	
@@ -41,11 +39,9 @@ Ext.define('SFASU.controller.Home.Feed', {
 	},
 	
 	feedAction: function(list, index, element, record) {
-		//console.log('feed item tapped');
-		
 		switch(record.get('type')) {
 			case 'news':
-				console.log('News');
+				//console.log('News');
 					this.hideAxe();
 					this.getFeed().push({
 						xtype: 'panel',
@@ -60,7 +56,7 @@ Ext.define('SFASU.controller.Home.Feed', {
 					});
 				break;
 			case 'athletics':
-				console.log('Athletics');
+				//console.log('Athletics');
 				this.hideAxe();
 				this.getFeed().push({
 					xtype: 'panel',
@@ -73,13 +69,12 @@ Ext.define('SFASU.controller.Home.Feed', {
 				});
 				break;
 			case 'video':
-				console.log('Video');
+				//console.log('Video');
 				Ext.util.openLink(record.get('link'));
 				
 				break;
 			case 'twitter':
-				console.log('Twitter');
-				//Ext.util.openLink(record.get('link'));
+				//console.log('Twitter');
 			
 				this.hideAxe();
 				this.getFeed().push({

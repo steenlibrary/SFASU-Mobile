@@ -13,9 +13,6 @@ Ext.define('SFASU.controller.Directory.Person.Map', {
 	},
 
 	buttonAction: function(button, event, eOpts) {
-		//this.getHomescreen().push({
-		//	xtype: button.getId()
-		//});
-		console.log('favorite');
+		//console.log('favorite');
 	}
 });

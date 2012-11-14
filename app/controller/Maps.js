@@ -24,13 +24,13 @@ Ext.define('SFASU.controller.Maps', {
 	
 	showAxe: function() {
 		if(this.getAxe()) {
-			this.getAxe().show();
+			this.getAxe().show({type: 'fadeIn'});
 		}
 	},
 	
 	hideAxe: function() {
 		if(this.getAxe()) {
-			this.getAxe().hide();
+			this.getAxe().hide({type: 'fadeOut'});
 		}
 	},
 	

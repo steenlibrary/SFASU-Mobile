@@ -27,7 +27,8 @@ Ext.define('SFASU.view.News', {
 
 	        emptyText: '<p class="no-searches">There was an error retrieving the news.</p>',
 
-	        itemTpl: '<img src="{thumbnail}" style="float: left; padding-right: 5px;" /> {title}'
+	        itemTpl: '<div><img src="{thumbnail}" style="float: left; padding-right: 5px;" /> {title}</div>'
+				+ '<div style="clear:both;"></div>'
 		}]
         
     }

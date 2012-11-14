@@ -19,7 +19,7 @@ Ext.define('SFASU.view.Athletics.Sport.Schedule', {
 			{ type: 'pullrefresh' }
 		],
 		
-		emptyText: '<p class="no-searches">There\'s not a lot going on!</p>',
+		emptyText: '<p class="no-searches">No schedule found.</p>',
 		
 		itemTpl: '{title} {content}',
     }

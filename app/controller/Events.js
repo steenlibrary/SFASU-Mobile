@@ -11,12 +11,10 @@ Ext.define('SFASU.controller.Events', {
 		control: {
 			events: {
 				show: 'showEvents',
-				pop: 'showAxe',
-				//push: 'hideAxe'
+				pop: 'showAxe'
 			},
 			'events list': {
-				itemtap: 'showEvent',
-				show: 'hideBadge'
+				itemtap: 'showEvent'
 			}
 		}
 	},
@@ -36,10 +34,6 @@ Ext.define('SFASU.controller.Events', {
 	showEvents: function() {
 		Ext.getStore('Events').load();
 	},
-	
-	hideBadge: function() {
-		//Ext.getCmp('events').setBadgeText(false);
-	},
 
 	showEvent: function(list, index, element, record) {
 		if(!this.getEvent()) {
@@ -48,9 +42,13 @@ Ext.define('SFASU.controller.Events', {
 				xtype: 'panel',
 				title: record.get('title'),
 				html: '<h3>' + record.get('title') + '</h3>' 
+					+ '<p class="calendar-large">'
+					+ Ext.Date.format(record.get('date'), 'j') 
+					+'<em>' + Ext.Date.format(record.get('date'), 'M')  + '</em></p>'
+					+ '<p style="padding: 10px;">'
 					+ Ext.Date.format(record.get('date'), 'l, F j, Y') 
 					+ '<br/><br/>'
-					+ record.get('content'),
+					+ record.get('content') + '</p>',
 				scrollable: true,
 				styleHtmlContent: true
 			});

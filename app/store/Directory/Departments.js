@@ -4,7 +4,7 @@ Ext.define('SFASU.store.Directory.Departments', {
     config: {
 		storeId: 'Directory.Departments',
 		model: 'SFASU.model.Directory.Departments',
-        //autoLoad: true,
+		
         sorters: 'department',
 
         grouper: {
@@ -15,9 +15,8 @@ Ext.define('SFASU.store.Directory.Departments', {
 
         proxy: {
             type: 'jsonp',
-			//url: 'http://library.sfasu.edu/mobile/departments_json.php',
 			
-			url: 'http://library.sfasu.edu/mobile/data/index.php',
+			url: serverPath,
 			
 			extraParams: {
 	            feature: 'departments'

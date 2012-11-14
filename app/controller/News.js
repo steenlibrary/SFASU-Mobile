@@ -10,35 +10,27 @@ Ext.define('SFASU.controller.News', {
 		control: {
 			'news list': {
 				itemtap: 'showStory',
-				show: 'hideBadge'
-				
-				//disclose: 'showStory',
 			},
 			news: {
-				pop: 'showAxe',
-				//push: 'hideAxe'
+				pop: 'showAxe'
 			}
 		}
 	},
 	
 	showAxe: function() {
 		if(this.getAxe()) {
-			this.getAxe().show();
+			this.getAxe().show({type: 'fadeIn'});
 		}
 	},
 	
 	hideAxe: function() {
 		if(this.getAxe()) {
-			this.getAxe().hide();
+			this.getAxe().hide({type: 'fadeOut'});
 		}
 	},
 	
-	hideBadge: function() {
-		//Ext.getCmp('news').setBadgeText(false);
-	},
-
 	showStory: function(list, index, element, record) {
-		console.log('showStory');
+		//console.log('showStory');
 		if(!this.getStory()) {
 			this.hideAxe();
 			this.getNews().push({

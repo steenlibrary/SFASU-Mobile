@@ -22,15 +22,9 @@ Ext.define('SFASU.controller.Alerts', {
 		}
 	},
 	
-	showAxe: function() {
-		if(this.getAxe()) {
-			this.getAxe().show();
-		}
-	},
-	
 	hideAxe: function() {
 		if(this.getAxe()) {
-			this.getAxe().hide();
+			this.getAxe().hide({type: 'fadeOut'});
 		}
 	},
 	

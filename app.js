@@ -8,7 +8,6 @@
  * @author   Michael Gillen <mlgillen@sfasu.edu>
  */
 
-var serverPath = 'http://library.sfasu.edu/mobile/data/index.php';
 var childBrowser;
 
 Ext.Loader.setConfig({
@@ -85,12 +84,11 @@ Ext.application({
 		'Directory.Emergency',
 		'Directory.General',
 		'Directory.List',
-	//	'Directory.Favorites',
+		//'Directory.Favorites',
 		'Directory.Person.Main',
 		'Directory.Person.Contact',
 		
 		'Home.Feed',
-		//'Home.WhatsNew',
 		
 		'Library.Main',
 		'Library.Catalog',
@@ -229,9 +227,11 @@ Ext.application({
 		
 		'Facebook',
 		'Twitter',
-		
-		'Video',
-		'Videos',
+
+		'Videos.Main',
+		'Videos.Phone',
+		'Videos.Tablet',
+		'Videos.Pane',
 		
 		'WhatsNew'
 	],
@@ -264,6 +264,7 @@ Ext.application({
         // Initialize the main view
 		Ext.Viewport.add(Ext.create('SFASU.view.Home.SlideMenu'));
 		//onDeviceReady();
+		// install childBrowser
 		if(window.plugins) {
 			childBrowser = window.plugins.childBrowser;
 			//childBrowser.showWebPage("http://google.com");

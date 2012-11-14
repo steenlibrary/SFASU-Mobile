@@ -15,11 +15,5 @@ Ext.define('SFASU.view.WhatsNew', {
 		direction: 'vertical',
 
         store: 'WhatsNew',
-        //limit: 10,
-		//grouped: true,
-
-        //emptyText: '<p class="no-searches">There\'s not a lot going on!</p>',
-
-        //itemTpl: '{caption}<img src="{image}" width="100%" />',
     }
 });

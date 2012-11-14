@@ -23,13 +23,13 @@ Ext.define('SFASU.controller.Athletics.Main', {
 	
 	showAxe: function() {
 		if(this.getAxe() && ! this.getAthleticsList().getHidden()) {
-			this.getAxe().show();
+			this.getAxe().show({type: 'fadeIn'});
 		}
 	},
 	
 	hideAxe: function() {
 		if(this.getAxe()) {
-			this.getAxe().hide();
+			this.getAxe().hide({type: 'fadeOut'});
 		}
 	},
 

@@ -8,15 +8,12 @@ Ext.define('SFASU.controller.Courses', {
 		control: {
 			'courses list': {
 				itemtap: 'showLink',
-				//show: 'hideBadge'
-				
-				//disclose: 'showStory',
 			}
 		}
 	},
 	
 	showLink: function(list, index, element, record) {
-		console.log('showLink: ' + record.get('url'));
+		//console.log('showLink: ' + record.get('url'));
 		Ext.util.openLink(record.get('url'));
 	}
 });

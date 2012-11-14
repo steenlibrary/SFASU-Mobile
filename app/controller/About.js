@@ -28,20 +28,20 @@ Ext.define('SFASU.controller.About', {
 	},
 
 	sendSupport: function() {
-		//Ext.Viewport.mask();
-		console.log('sendSupport');
 		var supportName = this.getSupportName().getValue(),
 			supportEmail = this.getSupportEmail().getValue(),
 			supportComment = this.getSupportComment().getValue();
 		
-		console.log('supportName: ' + supportName);
-		/*
 		Ext.data.JsonP.request({
-			url: 'https://library.sfasu.edu/mobile/support.php',
+			
+			url: 'https://library.sfasu.edu/mobile/data/index.php',
 			
 			callbackKey: 'callback',
 			
 			params: {
+				feature: 'contact',
+				deviceType: Ext.os.deviceType,
+				deviceVersion: Ext.os.version,
 				supportName: supportName,
 				supportEmail: supportEmail,
 				supportComment: supportComment
@@ -50,12 +50,17 @@ Ext.define('SFASU.controller.About', {
 			success: function(result, request) {
 				Ext.Viewport.unmask();
 				console.log(result);
-				var status = result.data.status;
-				if (status) {
-					
+				var status = result.status;
+				if (status && (status.indexOf('success') > -1)) {
+					console.log('success');
+					Ext.Msg.alert('Thank You!', 'Thank you for your feedback.'
+						+'  We are reviewing your comments and will contact you ASAP.', Ext.emptyFn);
+				} else {
+					console.log('error');
+					Ext.Msg.alert('Error', 'There was an error sending your support request.'
+						+'  Please try again or e-mail us directory at: libwebdev@sfasu.edu', Ext.emptyFn);
 				}
 		   }
 		});
-		*/
 	}
 });

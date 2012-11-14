@@ -242,7 +242,7 @@ Ext.define("SFASU.view.Home.SlideMenu", {
 				//ui: 'plain'
             },
 			items: [{
-				xtype: 'videos'
+				xtype: 'videos_main'
 			}]
 		},{
 			title: 'Radio',

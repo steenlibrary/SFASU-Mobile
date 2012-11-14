@@ -21,13 +21,13 @@ Ext.define('SFASU.controller.PineLog', {
 	
 	showAxe: function() {
 		if(this.getAxe()) {
-			this.getAxe().show();
+			this.getAxe().show({type: 'fadeIn'});
 		}
 	},
 	
 	hideAxe: function() {
 		if(this.getAxe()) {
-			this.getAxe().hide();
+			this.getAxe().hide({type: 'fadeOut'});
 		}
 	},
 	
@@ -42,8 +42,8 @@ Ext.define('SFASU.controller.PineLog', {
 				xtype: 'panel',
 				title: record.get('title'),
 				html: '<h3>' + record.get('title') + '</h3>'
-				 	+ 'by ' + record.get('author')
-					+ '<img style="float: right;" src="' + record.get('thumbnail') + '" />'
+				 	+ record.get('author') + '<br/>'
+					+ (record.get('thumbnail') ? '<img style="float: right;" width="50%" src="' + record.get('thumbnail') + '" />' : '' )
 					+ record.get('content'),
 				scrollable: true,
 				styleHtmlContent: true

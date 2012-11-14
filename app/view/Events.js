@@ -14,7 +14,6 @@ Ext.define('SFASU.view.Events', {
         items: [{
 			xtype: 'list',
 			title: 'Upcoming Events',
-			iconCls: 'calendar2',
 
 	        store: 'Events',
 	        limit: 10,
@@ -25,9 +24,9 @@ Ext.define('SFASU.view.Events', {
 	            { type: 'pullrefresh' }
 	        ],
 
-	        emptyText: '<p class="no-searches">There\'s not a lot going on!</p>',
+	        emptyText: '<p class="no-searches">No upcoming events were found.</p>',
 
-	        itemTpl: '{title}',
+	        itemTpl: '<div><p class="calendar">{date:date("j")} <em>{date:date("M")}</em></p> {title}</div><div style="clear:both"></div>',
 		}]
     }
 });

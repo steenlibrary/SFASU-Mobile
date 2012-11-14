@@ -16,7 +16,7 @@ Ext.define('SFASU.controller.Athletics.News', {
 	},
 
 	showStory: function(list, index, element, record) {
-		this.getAthletics_main().push({
+		this.getAthletics().push({
 			xtype: 'panel',
 			title: record.get('title'),
 			html: '<h3>' + record.get('title') + '</h3>' 

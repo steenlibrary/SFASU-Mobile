@@ -3,34 +3,16 @@ Ext.define('SFASU.controller.Library.Account', {
 
 	config: {
 		refs: {
-			account: 'library_account',
-			//story: 'co panel',
-			axe: 'library_main [name=slidebutton]'
+			account: 'library_account'
 		},
 		control: {
 			account: {
-				itemtap: 'showLink',
-				//show: 'hideBadge'
-				
-				//disclose: 'showStory',
+				itemtap: 'showLink'
 			}
 		}
 	},
 	
-	showAxe: function() {
-		if(this.getAxe()) {
-			this.getAxe().show();
-		}
-	},
-	
-	hideAxe: function() {
-		if(this.getAxe()) {
-			this.getAxe().hide();
-		}
-	},
-	
 	showLink: function(list, index, element, record) {
-		console.log('showLink: ' + record.get('url'));
 		Ext.util.openLink(record.get('url'));
 	}
 });

@@ -3,7 +3,6 @@ Ext.define('SFASU.controller.Athletics.Sport.Schedule', {
 
 	config: {
 		refs: {
-			//news: 'news',
 			athletics: 'athletics_main',
 			homescreen: 'homescreen'
 		},

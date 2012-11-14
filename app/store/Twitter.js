@@ -61,10 +61,16 @@ Ext.define('SFASU.store.Twitter', {
 						return;
 					}
 					
+					
+					
 					var url = 'http://twitter.com/' 
 					+ tweet.get('from_user')
 					+ '/status/' 
 					+ tweet.get('id_str');
+					
+					if(feedStore.findRecord('link', url)) {
+						return;
+					}
 					
 					if(Ext.os.is.Phone) {
 						var title = Ext.String.ellipsis(

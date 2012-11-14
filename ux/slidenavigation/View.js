@@ -149,6 +149,16 @@ Ext.define('Ext.ux.slidenavigation.View', {
                 release: me.toggleContainer,
                 scope: me
             },
+			
+			hideAnimation: Ext.os.is.Android ? false : {
+				type: 'fadeOut',
+				duration: 200
+			},
+			
+			showAnimation: Ext.os.is.Android ? false : {
+				type: 'fadeIn',
+				duration: 200
+			}
             /**
              *  To add the button into a toolbar, you can add the following
              *  to any item in your navigation list.

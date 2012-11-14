@@ -19,7 +19,7 @@ Ext.define('SFASU.controller.Athletics.Sport.Bio.Main', {
 	},
 	
 	showLinkButton: function(button, event, eOpts) {
-		console.log(this.getBio().config);
+		//console.log(this.getBio().config);
 		if(this.getBio().config.bio_page) {
 			//this.getLinkButton().enable();
 			//this.getLinkButton().show();
@@ -35,7 +35,7 @@ Ext.define('SFASU.controller.Athletics.Sport.Bio.Main', {
 	
 	linkAction: function(button, event, eOpts) {
 		if(this.getBio().config.bio_page) {
-			console.log('linkAction');
+			//console.log('linkAction');
 			//window.open(this.getBio().config.bio_page, "_blank");
 			Ext.util.openLink(this.getBio().config.bio_page);
 		}

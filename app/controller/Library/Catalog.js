@@ -24,13 +24,13 @@ Ext.define('SFASU.controller.Library.Catalog', {
 	
 	showAxe: function() {
 		if(this.getAxe() && ! this.getLibrary().getHidden()) {
-			this.getAxe().show();
+			this.getAxe().show({type: 'fadeIn'});
 		}
 	},
 	
 	hideAxe: function() {
 		if(this.getAxe()) {
-			this.getAxe().hide();
+			this.getAxe().hide({type: 'fadeOut'});
 		}
 	},
 	
@@ -52,14 +52,7 @@ Ext.define('SFASU.controller.Library.Catalog', {
 		var searchLimit = this.getSearchLimit().getValue();
 		var searchUrl = 'http%3A%2F%2Flibrary.sfasu.edu%2Ffind%2FSearch%2FResults%3Flookfor%3D'
 			+ searchTerm + '%26type%3D' + searchLimit + '%26view%3Drss';
-		/*
-		var searchUrl = 'http://library.sfasu.edu/find/Search/Results?'
-			+ 'lookfor=' + searchTerm
-			+ '&type=' + searchLimit
-			+ '&view=rss';
-		var searchUrlEncoded = encodeURIcomponent(searchUrl);
-		console.log(searchUrlEncoded);
-		*/
+
 		this.hideAxe();
 		this.getLibrary().push({
 			xtype: 'list',

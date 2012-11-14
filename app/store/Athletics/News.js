@@ -31,10 +31,13 @@ Ext.define('SFASU.store.Athletics.News', {
 		
         proxy: {
             type: 'jsonp',
-            //url: 'https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=50&q='
-			//		+ 'http://sfajacks.cstv.com/headline-rss.xml',
-			url: 'http://library.sfasu.edu/mobile/athletics_news_json.php',
-			
+
+			url: serverPath,
+
+			extraParams: {
+	            feature: 'athletics_news'
+	        },
+	
 			reader: {
 				type: 'json',
 				rootProperty: ''

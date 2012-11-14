@@ -3,22 +3,15 @@ Ext.define('SFASU.store.PineLog', {
 
     config: {
         fields: [
-			//'title',
 			{ name: 'title', type: 'string'},
-            //'content',
 			{ name: 'content', type: 'string'},
-            //'link',
 			{ name: 'link', type: 'string'},
 			{ name: 'author', type: 'string'},
 			{ name: 'thumbnail', type: 'string'},
-            //'publishedDate'
-			{ name: 'publishedDate', type: 'date', /*dateFormat: 'm/d/Y'*/ },
-			//{ name: 'publishedDate', type: 'date', dateFormat: 'l, F d, Y g:i:s A' },
+			{ name: 'publishedDate', type: 'date'},
         ],
 
 		idProperty: 'link',
-		
-		//fields: ['title', 'content', 'link', 'publishedDate'],
         
 		autoLoad: false,
         
@@ -37,7 +30,7 @@ Ext.define('SFASU.store.PineLog', {
         proxy: {
             type: 'jsonp',
 			
-			url: 'http://library.sfasu.edu/mobile/data/index.php',
+			url: serverPath,
 			
 			extraParams: {
 	            feature: 'pinelog'

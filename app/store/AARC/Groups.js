@@ -19,7 +19,7 @@ Ext.define('SFASU.store.AARC.Groups', {
         proxy: {
             type: 'jsonp',
 
-			url: 'http://library.sfasu.edu/mobile/data/index.php',
+			url: serverPath,
 			
 			extraParams: {
 	            feature: 'aarc_sigroups'

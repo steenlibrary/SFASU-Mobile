@@ -3,10 +3,8 @@ Ext.define('SFASU.model.Library.Hours', {
 
     config: {
         fields: [
-            'title',
-            'content',
-            'link',
-            'publishedDate'
+			{ name: 'hours', type: 'string'},
+			{ name: 'date', type: 'date'},
         ],
 		idProperty: 'title'
     }

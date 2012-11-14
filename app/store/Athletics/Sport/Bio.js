@@ -9,9 +9,12 @@ Ext.define('SFASU.store.Athletics.Sport.Bio', {
 
             type: 'jsonp',
 
-            url: 'http://library.sfasu.edu/mobile/athletics_bio_json.php',
+            //url: 'http://library.sfasu.edu/mobile/athletics_bio_json.php',
+
+			url: serverPath,
 
 			extraParams: {
+				feature: 'athletics_bio',
 	            bio_id: '',
 				details: ''
 	        },

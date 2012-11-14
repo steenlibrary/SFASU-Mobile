@@ -28,8 +28,10 @@ Ext.define('SFASU.controller.Athletics.Sport.Roster', {
 			this.bio.config.firstname = record.get('first_name');
 			this.bio.config.lastname = record.get('last_name');
 			this.bio.config.number = record.get('number');
+			
 		
 			var params = { 
+				feature: 'athletics_bio',
 				bio_id: record.get('bio_id'),
 				details: record.get('details')
 			};

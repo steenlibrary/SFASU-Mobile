@@ -27,10 +27,10 @@ Ext.define('SFASU.view.Home.Feed', {
 				}
 			]
 		},
+		
 		items:[{
 			xtype: 'panel',
 			title: 'What\'s New',
-			//iconCls: 'home',
 			layout: {
 				type: 'vbox',
 				//align: 'start',
@@ -42,19 +42,18 @@ Ext.define('SFASU.view.Home.Feed', {
 				{
 					xtype: 'whatsnew',
 					ui: 'light',
-					flex: 2
+					flex: (Ext.os.is.Phone ? 2 : 3)
 				},
 				
 				{
 					xtype: 'dataview',
 					style: 'background-color: #000;',
-					flex: 3,
+					flex: 5,
 					store: 'Home.Feed',
 					grouped: true,
 
 				    emptyText: '<p class="no-searches">There was an error loading what\'s new.</p>',
-					//cls: 'personInfo',
-				    //itemTpl: '<img src="{image}" style="float: left; padding-right: 5px;" width="30%" /> {title}'
+				
 					itemTpl: [
 						'<tpl for=".">',
 							'<div style="width:50%;',

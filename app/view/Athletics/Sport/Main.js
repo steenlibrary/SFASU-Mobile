@@ -24,16 +24,6 @@ Ext.define("SFASU.view.Athletics.Sport.Main", {
 				xtype: 'athletics_sport_news',
 				store: {
 					model: 'SFASU.model.Athletics.Sport.News',
-					/*
-					fields: [
-						'id',
-						'title', 
-						'content', 
-						'link', 
-						//'publishedDate'
-						{ name: 'publishedDate', type: 'date'},
-					],
-					*/
 			        autoLoad: true,
 			        sorters: 'publishedDate',
 				
@@ -114,12 +104,16 @@ Ext.define("SFASU.view.Athletics.Sport.Main", {
 			            }
 			        },
 
-					pageSize: 10,
 			        proxy: {
 			            type: 'jsonp',
-			            url: 'http://library.sfasu.edu/mobile/athletics_roster_json.php?sport='
-								+ this.initialConfig.record.get('rosterFeed'),
-
+			
+						url: serverPath,
+						
+						extraParams: {
+							feature: 'athletics_roster',
+							sport: this.initialConfig.record.get('rosterFeed')
+						},
+						
 						reader: {
 							type: 'json',
 							rootProperty: ''

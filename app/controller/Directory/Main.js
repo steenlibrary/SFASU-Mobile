@@ -27,16 +27,16 @@ Ext.define('SFASU.controller.Directory.Main', {
 	},
 	
 	showAxe: function() {
-		console.log(this.getDirectoryTabPanel().getHidden());
+		//console.log(this.getDirectoryTabPanel().getHidden());
 		if(this.getAxe() && ! this.getDirectoryTabPanel().getHidden()) {
-			console.log('show');
-			this.getAxe().show();
+			//console.log('show');
+			this.getAxe().show({type: 'fadeIn'});
 		}
 	},
 	
 	hideAxe: function() {
 		if(this.getAxe()) {
-			this.getAxe().hide();
+			this.getAxe().hide({type: 'fadeOut'});
 		}
 	},
 	

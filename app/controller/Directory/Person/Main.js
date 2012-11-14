@@ -29,23 +29,23 @@ Ext.define('SFASU.controller.Directory.Person.Main', {
 		}
 		
 		this.getFavoriteButton().enable();
-		this.getFavoriteButton().show();
+		this.getFavoriteButton().show({type: 'fadeIn'});
 	},
 	
 	hideFavoriteButton: function(button, event, eOpts) {
 		this.getFavoriteButton().disable();
-		this.getFavoriteButton().hide();
+		this.getFavoriteButton().hide({type: 'fadeOut'});
 	},
 	
 	favoriteAction: function(button, event, eOpts) {
-		console.log('favoriteAction');
-		console.log(this.getPerson().config.id);
+		//console.log('favoriteAction');
+		//console.log(this.getPerson().config.id);
 		var favoriteRecord;
 		var personRecord = this.getPerson().config;
 		var favoritesStore = Ext.getStore('Directory.Favorites');
-		console.log(personRecord.id);
+		//console.log(personRecord.id);
 		if(favoriteRecord = favoritesStore.findRecord('personId', personRecord.personId)) {
-			console.log(favoriteRecord);
+			//console.log(favoriteRecord);
 			//Ext.Msg.alert('Error', 'Favorite already exists!', Ext.emptyFn);
 			favoritesStore.remove(favoriteRecord);
 			favoritesStore.sync();
@@ -61,7 +61,7 @@ Ext.define('SFASU.controller.Directory.Person.Main', {
 				personId: personRecord.id
 			});
 			favoritesStore.sync();
-			console.log(favoritesStore);
+			//console.log(favoritesStore);
 			this.getFavoriteButton().setIconCls('user_remove2');
 		}
 	}

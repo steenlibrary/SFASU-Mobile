@@ -12,6 +12,7 @@ Ext.define('SFASU.view.TraditionsPane', {
 		},
 		
 		items: [
+		
 		]
 	}
 });

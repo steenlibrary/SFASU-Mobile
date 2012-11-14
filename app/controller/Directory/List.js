@@ -54,7 +54,7 @@ Ext.define('SFASU.controller.Directory.List', {
 	
 	showAxe: function() {
 		if(this.getAxe()) {
-			this.getAxe().show();
+			this.getAxe().show({type: 'fadeIn'});
 		}
 	},
 	
@@ -62,17 +62,17 @@ Ext.define('SFASU.controller.Directory.List', {
 		switch(navigationview) {
 			case 'library':
 				if(this.getLibraryAxe()) {
-					this.getLibraryAxe().hide();
+					this.getLibraryAxe().hide({type: 'fadeOut'});
 				}
 			  break;
 			case 'aarc':
 				if(this.getAARCAxe()) {
-					this.getAARCAxe().hide();
+					this.getAARCAxe().hide({type: 'fadeOut'});
 				}
 			  break;
 			default:
 				if(this.getAxe()) {
-					this.getAxe().hide();
+					this.getAxe().hide({type: 'fadeOut'});
 				}
 			  break;
 		}

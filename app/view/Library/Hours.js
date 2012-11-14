@@ -23,6 +23,6 @@ Ext.define('SFASU.view.Library.Hours', {
 
         emptyText: '<p class="no-searches">It must be a slow news day!</p>',
 
-        itemTpl: '{title}<br/>{content}'
+        itemTpl: '{hours}'
     }
 });

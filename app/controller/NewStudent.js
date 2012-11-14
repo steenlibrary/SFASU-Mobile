@@ -3,9 +3,7 @@ Ext.define('SFASU.controller.NewStudent', {
 
 	config: {
 		refs: {
-			newStudent: 'newstudent',
-			//story: 'co panel',
-			axe: 'newstudent [name=slidebutton]'
+			newStudent: 'newstudent'
 		},
 		control: {
 			'newstudent list': {

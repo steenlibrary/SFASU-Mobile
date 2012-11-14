@@ -27,7 +27,7 @@ Ext.define('SFASU.view.PineLog', {
 
 	        emptyText: '<p class="no-searches">It must be a slow news day!</p>',
 
-	        itemTpl: '<p><tpl if="thumbnail != \'\'"><div class="avatar" style="background-image: url({thumbnail});"></div></tpl>{title}</p><br/>'
+	        itemTpl: '<p><tpl if="thumbnail != null"><div class="avatar" style="background-image: url({thumbnail});"></div></tpl>{title}</p><br/>'
 		}]
         
     }

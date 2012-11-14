@@ -15,10 +15,10 @@ Ext.define('SFASU.controller.Library.Main', {
 	},
 	
 	showAxe: function() {
-		console.log(this.getLibraryTabPanel().getHidden());
+		//console.log(this.getLibraryTabPanel().getHidden());
 		if(this.getAxe() && ! this.getLibraryTabPanel().getHidden()) {
-			console.log('show');
-			this.getAxe().show();
+			//console.log('show');
+			this.getAxe().show({type: 'fadeIn'});
 		}
 	}
 });
