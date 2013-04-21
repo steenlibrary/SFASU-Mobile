@@ -20,13 +20,7 @@ Ext.define('SFASU.view.Directory.Search', {
 					{
 						xtype: 'textfield',
 						id: 'directory_term',
-						placeHolder: 'Pattillo',
-						listeners: {
-							keyup: function(e) {
-								console.log(e);
-								//console.log(e.browserEvent.keyCode);
-							}
-						}
+						placeHolder: 'Pattillo'
 					}
 			    ]
 			},

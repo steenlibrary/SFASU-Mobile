@@ -35,7 +35,7 @@ Ext.define('SFASU.controller.Twitter', {
 			+ tweet.get('from_user')
 			+ '/status/' 
 			+ tweet.get('id_str');
-		Ext.util.openLink(url);
+		openLink(url);
 	},
 	
 	showTweet: function(list, index, element, tweet) {
@@ -44,11 +44,21 @@ Ext.define('SFASU.controller.Twitter', {
 			this.getSocial().push({
 				xtype: 'panel',
 				title: '@' + tweet.get('from_user'),
-				html: '<img src="' + tweet.get('profile_image_url') + '" style="float: left; padding-right: 5px;" />'
-					+ '<h3>' + tweet.get('text') + '</h3>'
-					+ 'Posted: ' + Ext.Date.format(tweet.get('created_at'), 'g:i a l, F j, Y'),
 				scrollable: true,
-				styleHtmlContent: true
+				styleHtmlContent: true,
+				items: [{
+					html: '<img src="' + tweet.get('profile_image_url') + '" style="float: left; padding: 5px;" />'
+						+ '<h3>@' + tweet.get('from_user') + '</h3>'
+						+ '<h3>' + tweet.get('text') + '</h3>'
+						+ 'Posted: ' + Ext.Date.format(tweet.get('created_at'), 'g:i a l, F j, Y')
+				},{
+					xtype: 'button',
+					text: 'View Tweet on Twittter',
+					
+					handler: function() {
+						openLink(tweet.get('link'));
+					}
+				}]
 			});
 		}
 	}

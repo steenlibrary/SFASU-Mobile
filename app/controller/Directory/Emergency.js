@@ -9,6 +9,7 @@ Ext.define('SFASU.controller.Directory.Emergency', {
 			}
 		}
 	},
+	
 	callNumber: function(list, index, element, record) {
 		Ext.util.callNumber(record.get('phone'));
 	}

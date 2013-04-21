@@ -16,8 +16,8 @@ Ext.define('SFASU.view.Videos.Tablet', {
 		grouped: true,
 
         plugins: [
-            { type: 'listpaging' },
-            { type: 'pullrefresh' }
+            //{ type: 'listpaging' },
+            //{ type: 'pullrefresh' }
         ],
 
         emptyText: '<p class="no-searches">There are currently no published videos.</p>',

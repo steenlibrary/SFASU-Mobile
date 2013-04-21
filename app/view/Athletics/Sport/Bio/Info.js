@@ -11,6 +11,6 @@ Ext.define('SFASU.view.Athletics.Sport.Bio.Info', {
 			data: [
 			]
 		},
-		itemTpl: '<b>{type}:</b> {data}',
+		itemTpl: '<b>{type}:</b> {data}'
 	}
 });

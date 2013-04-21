@@ -2,13 +2,12 @@ Ext.define('SFASU.store.Athletics.Events', {
     extend: 'Ext.data.Store',
 
     config: {
-		//model: 'SFASU.model.News',
 		storeId: 'Athletics.Events',
 		fields: [
             'title',
             'content',
             'link',
-            { name: 'publishedDate', type: 'date'},
+            { name: 'publishedDate', type: 'date'}
         ],
         //autoLoad: true,
         sorters: 'publishedDate',

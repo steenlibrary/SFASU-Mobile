@@ -3,7 +3,7 @@ Ext.define("SFASU.view.Radio.Main", {
 	extend: 'Ext.navigation.View',
 	
     requires: [
-        'Ext.TitleBar',
+        'Ext.TitleBar'
     ],
 
 	xtype: 'radio_main',
@@ -16,17 +16,13 @@ Ext.define("SFASU.view.Radio.Main", {
 
 			tabBarPosition: 'bottom',
 
-	        items: [
-				{
-					xtype: 'radio_listen'
-				},
-				{
-					xtype: 'radio_schedule'
-				},
-				{
-					xtype: 'radio_about'
-				}
-	        ]
+	        items: [{
+				xtype: 'radio_listen'
+			},{
+				xtype: 'radio_schedule'
+			},{
+				xtype: 'radio_about'
+			}]
 		}]
     }
 });

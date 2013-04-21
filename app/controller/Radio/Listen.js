@@ -34,7 +34,7 @@ Ext.define('SFASU.controller.Radio.Listen', {
 	},
 	
 	onVolumeSliderChange: function(me, Slider, thumb, newValue, oldValue, eOpts) {
-		console.log('New Volume: ' + newValue);
+		//console.log('New Volume: ' + newValue);
 		
 		this.getRadioAudio().setVolume(newValue);
 	},
@@ -50,7 +50,7 @@ Ext.define('SFASU.controller.Radio.Listen', {
 	},
 	
 	onVolumeTap: function(button, event, eOpts) {
-		console.log('onVolumeTap');
+		//console.log('onVolumeTap');
 
 		if(this.getPlayVolume().getIconCls() == 'volume_up') {
 			//this.media.play();
@@ -65,15 +65,6 @@ Ext.define('SFASU.controller.Radio.Listen', {
 	},
 	
 	onPlayTap: function(button, event, eOpts) {
-		console.log('onPlayTap');
-		
-		//var audio = new Ext.Audio({
-		 //         enableControls: false,
-		   //       url: src,
-		     //     loop: false,
-		       //   scope: this
-		      //});
-		//audio.toggle();
 		if(this.getPlayButton().getIconCls() == 'play2') {
 			//this.media.play();
 			this.getPlayButton().setIconCls('pause');
@@ -82,8 +73,6 @@ Ext.define('SFASU.controller.Radio.Listen', {
 			this.getPlayButton().setIconCls('play2');
 			this.getPlayStatus().setHtml('Stopped.');
 		}
-		
-		console.log(this.getRadioAudio());
 		this.getRadioAudio().toggle();
 	}
 });

@@ -12,8 +12,7 @@ Ext.define('SFASU.model.PineLog', {
 			{ name: 'author', type: 'string'},
 			{ name: 'thumbnail', type: 'string'},
             //'publishedDate'
-			{ name: 'publishedDate', type: 'date', /*dateFormat: 'm/d/Y'*/ },
-			//{ name: 'publishedDate', type: 'date', dateFormat: 'l, F d, Y g:i:s A' },
+			{ name: 'publishedDate', type: 'date'}
         ],
 		idProperty: 'link'
     }

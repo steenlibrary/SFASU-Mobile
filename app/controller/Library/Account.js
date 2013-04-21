@@ -13,6 +13,6 @@ Ext.define('SFASU.controller.Library.Account', {
 	},
 	
 	showLink: function(list, index, element, record) {
-		Ext.util.openLink(record.get('url'));
+		openLink(record.get('url'));
 	}
 });

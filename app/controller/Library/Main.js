@@ -9,16 +9,25 @@ Ext.define('SFASU.controller.Library.Main', {
 		},
 		control: {
 			library: {
-                pop: 'showAxe'
-            },
+                pop: 'showAxe',
+				show: 'showLibrary'
+            }
 		}
 	},
 	
 	showAxe: function() {
-		//console.log(this.getLibraryTabPanel().getHidden());
 		if(this.getAxe() && ! this.getLibraryTabPanel().getHidden()) {
-			//console.log('show');
 			this.getAxe().show({type: 'fadeIn'});
 		}
-	}
+	},
+	
+	showLibrary: function() {
+		Ext.getStore('Maps').load({
+            scope: this
+        });
+		
+		Ext.getStore('Directory.Departments').load({
+            scope: this
+        });
+    }
 });

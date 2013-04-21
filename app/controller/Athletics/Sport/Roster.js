@@ -7,7 +7,7 @@ Ext.define('SFASU.controller.Athletics.Sport.Roster', {
 			athletics: 'athletics_main',
 			bio: 'athletics_sport_bio_main',
 			bioPlaque: 'athletics_sport_bio_plaque',
-			bioInfo: 'athletics_sport_bio_info',
+			bioInfo: 'athletics_sport_bio_info'
 		},
 		control: {
 			'athletics_sport_roster': {
@@ -105,7 +105,7 @@ Ext.define('SFASU.controller.Athletics.Sport.Roster', {
 						{
 							type: 'Synopsis',
 							data: bioRecord.get('synopsis')
-						},
+						}
 						/*
 						{
 							type: 'Bio Page',

@@ -3,11 +3,11 @@ Ext.define('SFASU.controller.AARC.WalkIn', {
 
 	config: {
 		refs: {
-			aarc: 'aarc_main',
+			aarc: 'aarc_main'
 		},
 		control: {
 			'aarc_walkin': {
-				show: 'showTables',
+				show: 'showTables'
 			}
 		}
 	},

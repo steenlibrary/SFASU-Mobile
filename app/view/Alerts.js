@@ -1,6 +1,7 @@
 Ext.define('SFASU.view.Alerts', {
 
-    extend: 'Ext.DataView',
+    //extend: 'Ext.List',
+	extend: 'Ext.navigation.View',
 
     requires: [
         'Ext.plugin.PullRefresh',
@@ -11,16 +12,19 @@ Ext.define('SFASU.view.Alerts', {
     xtype: 'alerts',
 
     config: {
-	
-        title: 'Campus Alerts',
-        store: 'Alerts',
+		items: [{
+			xtype: 'list',
+	        
+			title: 'Campus Alerts',
+			store: 'Alerts',
 
-        plugins: [
-            { type: 'pullrefresh' }
-        ],
+	        plugins: [
+	            { type: 'pullrefresh' }
+	        ],
 
-        emptyText: '<p class="no-searches">There are no campus alerts at this time.</p>',
+	        emptyText: '<p class="no-searches">There are no campus alerts at this time.</p>',
 
-        itemTpl: '<div><p class="campus-alerts">{title}</p></div>'
+	        itemTpl: '{headline}'
+		}]
     }
 });

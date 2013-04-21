@@ -10,23 +10,18 @@ Ext.define('SFASU.view.Library.Map', {
 		defaults: {
 			styleHtmlContent: true
 		},
-		items: [
-			{
-				title: '1st Floor',
-				html: 'Floor 1'
-			},
-			{
-				title: '2nd Floor',
-			    html: 'Floor 2'
-			},
-			{
-				title: '3rd Floor',
-			    html: 'Floor 3'
-			},
-			{
-				title: '4th Floor',
-			    html: 'Floor 4'
-			}
-		]
+		items: [{
+			title: '1st Floor',
+			html: 'Floor 1'
+		},{
+			title: '2nd Floor',
+			html: 'Floor 2'
+		},{
+			title: '3rd Floor',
+			html: 'Floor 3'
+		},{
+			title: '4th Floor',
+			html: 'Floor 4'
+		}]
 	}
 });

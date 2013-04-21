@@ -3,7 +3,7 @@ Ext.define("SFASU.view.AARC.Main", {
 	extend: 'Ext.navigation.View',
 	
     requires: [
-        'Ext.TitleBar',
+        'Ext.TitleBar'
     ],
 
 	xtype: 'aarc_main',

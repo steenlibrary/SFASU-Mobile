@@ -67,6 +67,7 @@ Ext.define('SFASU.store.Athletics.News', {
 							image: story.get('image'),
 							imageOrientation: imageOrientation,
 							content: story.get('content'),
+							link: story.get('link'),
 							publishedDate: story.get('publishedDate'),
 							type: 'athletics'
 						});

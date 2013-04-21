@@ -3,17 +3,16 @@ Ext.define('SFASU.controller.Courses', {
 
 	config: {
 		refs: {
-			courses: 'courses',
+			courses: 'courses'
 		},
 		control: {
 			'courses list': {
-				itemtap: 'showLink',
+				itemtap: 'showLink'
 			}
 		}
 	},
 	
 	showLink: function(list, index, element, record) {
-		//console.log('showLink: ' + record.get('url'));
-		Ext.util.openLink(record.get('url'));
+		openLink(record.get('url'));
 	}
 });

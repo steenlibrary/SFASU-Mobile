@@ -9,16 +9,26 @@ Ext.define('SFASU.controller.AARC.Main', {
 		},
 		control: {
 			AARC: {
-                pop: 'showAxe'
-            },
+                pop: 'showAxe',
+				show: 'showAARC'
+            }
 		}
 	},
 	
 	showAxe: function() {
-		console.log(this.getAARCTabPanel().getHidden());
 		if(this.getAxe() && ! this.getAARCTabPanel().getHidden()) {
-			console.log('show');
-			this.getAxe().show();
+			this.getAxe().show({type: 'fadeIn'});
 		}
-	}
+	},
+	
+	showAARC: function() {
+		Ext.getStore('Maps').load({
+            scope: this
+        });
+		
+		Ext.getStore('Directory.Departments').load({
+            scope: this
+        });
+    }
+	
 });

@@ -8,9 +8,8 @@ Ext.define('SFASU.view.Directory.Person.Contact', {
 		store: {
 			autoLoad: true,
 			fields: ['type', 'data'],
-			data: [
-			]
+			data: []
 		},
-		itemTpl: '{type}: {data}',
+		itemTpl: '{type}: {data}'
 	}
 });

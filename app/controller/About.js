@@ -2,14 +2,16 @@ Ext.define('SFASU.controller.About', {
 	extend: 'Ext.app.Controller',
 
 	config: {
+		
 		refs: {
 			about: 'about',
 			support: 'about formpanel',
 			supportName: 'about formpanel [name=name]',
 			supportEmail: 'about formpanel [name=email]',
 			supportComment: 'about formpanel [name=comment]',
-			gitHubButton: 'about [name=github]',
+			gitHubButton: 'about [name=github]'
 		},
+		
 		control: {
 			gitHubButton: {
 				tap: 'gitHubAction'
@@ -21,10 +23,11 @@ Ext.define('SFASU.controller.About', {
 				submit: 'sendSupport'
 			}
 		}
+		
 	},
 	
 	gitHubAction: function(button, event, eOpts)  {		
-		Ext.util.openLink(button.config.url);
+		openLink(button.config.url);
 	},
 
 	sendSupport: function() {
@@ -34,7 +37,7 @@ Ext.define('SFASU.controller.About', {
 		
 		Ext.data.JsonP.request({
 			
-			url: 'https://library.sfasu.edu/mobile/data/index.php',
+			url: serverPath,
 			
 			callbackKey: 'callback',
 			
@@ -49,14 +52,14 @@ Ext.define('SFASU.controller.About', {
 			
 			success: function(result, request) {
 				Ext.Viewport.unmask();
-				console.log(result);
+				//console.log(result);
 				var status = result.status;
 				if (status && (status.indexOf('success') > -1)) {
-					console.log('success');
+					//console.log('success');
 					Ext.Msg.alert('Thank You!', 'Thank you for your feedback.'
 						+'  We are reviewing your comments and will contact you ASAP.', Ext.emptyFn);
 				} else {
-					console.log('error');
+					//console.log('error');
 					Ext.Msg.alert('Error', 'There was an error sending your support request.'
 						+'  Please try again or e-mail us directory at: libwebdev@sfasu.edu', Ext.emptyFn);
 				}

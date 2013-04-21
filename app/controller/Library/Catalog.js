@@ -18,7 +18,7 @@ Ext.define('SFASU.controller.Library.Catalog', {
 			},
 			searchTerm: {
                 keyup: 'onSearch'
-            },
+            }
 		}
 	},
 	
@@ -42,7 +42,6 @@ Ext.define('SFASU.controller.Library.Catalog', {
         if (keyCode == 13) {
             //fire the search action with the current value of the searchField
             //this.fireAction('search', [searchField.getValue()], 'doSearch');
-			//alert('search');
 			this.searchCatalog();
         }
     },
@@ -81,7 +80,7 @@ Ext.define('SFASU.controller.Library.Catalog', {
 	
 			listeners: {
 				select: function(view, record) {
-					Ext.util.openLink(record.get('link'));
+					openLink(record.get('link'));
 				}
 			},
 

@@ -11,7 +11,7 @@ Ext.define('SFASU.model.Athletics.Sport.News', {
 				'link', 
 				//'publishedDate'
 				//'image',
-				{ name: 'publishedDate', type: 'date'},
+				{ name: 'publishedDate', type: 'date'}
         ],
 		idProperty: 'link'
     }

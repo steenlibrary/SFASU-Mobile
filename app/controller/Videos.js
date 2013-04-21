@@ -9,11 +9,14 @@ Ext.define('SFASU.controller.Videos', {
 			axe: 'videos_main [name=slidebutton]'
 		},
 		control: {
+			videos: {
+				pop: 'showAxe'
+			},
 			'videos_phone': {
-				itemtap: 'showVideo'
+				itemtap: 'onVideoTap'
 			},
 			'videos_tablet': {
-				itemtap: 'showVideo'
+				itemtap: 'onVideoTap'
 			},
 			videoPlay: {
 				tap: 'playVideo'
@@ -38,18 +41,8 @@ Ext.define('SFASU.controller.Videos', {
 	},
 	
 	onVideoTap: function(list, idx, el, record) {
-		//var url = 'http://www.youtube.com/watch?v=' + record.get('id') + '&feature=player_embedded&autoplay=true';
 		var url = 'http://www.youtube.com/embed/' + record.get('id');
-		if(childBrowser) {
-			childBrowser.showWebPage(url);
-		} else {
-			Ext.Msg.confirm('External Link', 'Open in YouTube?', function(result){
-	            if (result == 'yes') {
-	                window.location = url;
-	            }
-	        });
-		}
-		
+		openLink(url);
 	},
 
 	showVideo: function(list, index, element, record) {
@@ -60,6 +53,7 @@ Ext.define('SFASU.controller.Videos', {
 				xtype: 'videopane',
 				title: record.get('title')
 			});
+			
 			this.getVideo().setRecord(record);
 		}
 	}

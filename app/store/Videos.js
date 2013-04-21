@@ -45,6 +45,7 @@ Ext.define('SFASU.store.Videos', {
 				rootProperty: ''
 			}
         },
+		
 		listeners: {
 			load: function(store, data, eOpts) {
 				var feedStore = Ext.getStore('Home.Feed');

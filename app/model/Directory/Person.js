@@ -15,11 +15,11 @@ Ext.define('SFASU.model.Directory.Person', {
 			//'department',
 			{ name: "role", type: "string" },
 			//'role',
-			{ name: "phone", type: "string" },
+			{ name: "phone", type: "string" }
 			//'phone',
 			//'id'
-		],
-		//idProperty: 'memid'
+		]
+		//,idProperty: 'memid'
     },
 
 	getFullName: function() {

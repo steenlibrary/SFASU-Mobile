@@ -21,6 +21,6 @@ Ext.define('SFASU.view.Athletics.Sport.Schedule', {
 		
 		emptyText: '<p class="no-searches">No schedule found.</p>',
 		
-		itemTpl: '{title} {content}',
+		itemTpl: '{title} {content}'
     }
 });

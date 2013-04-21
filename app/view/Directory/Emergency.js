@@ -3,7 +3,7 @@ Ext.define('SFASU.view.Directory.Emergency', {
 	xtype: 'directory_emergency',
 	
 	requires: [
-        'Ext.List',
+        'Ext.List'
     ],
 	
 	config: {
@@ -17,30 +17,24 @@ Ext.define('SFASU.view.Directory.Emergency', {
         store: {
 			autoLoad: true,
 			fields: ['type', 'phone'],
-			data: [
-				{
-					type: 'Police Emergency', 
-					phone: '911',
-					iconCls: 'phone1',
-					iconMask: true
-				},
-				{
-					type: 'Fire Emergency',
-					phone: '911'
-				},
-				{
-					type: 'Police Non-Emergency',
-					phone: '936.468.2608'
-				},
-				{
-					type: 'Police Administration',
-					phone: '936.468.2252'
-				},
-				{
-					type: 'Permits and Citations',
-					phone: '936.468.2615'
-				}
-		    ]
+			data: [{
+				type: 'Police Emergency', 
+				phone: '911',
+				iconCls: 'phone1',
+				iconMask: true
+			},{
+				type: 'Fire Emergency',
+				phone: '911'
+			},{
+				type: 'Police Non-Emergency',
+				phone: '936.468.2608'
+			},{
+				type: 'Police Administration',
+				phone: '936.468.2252'
+			},{
+				type: 'Permits and Citations',
+				phone: '936.468.2615'
+			}]
 		}
 	}
 });

@@ -6,7 +6,8 @@ Ext.define('SFASU.controller.Directory.Search', {
 			directory: 'directory_main',
 			axe: 'directory_main [name=slidebutton]',
 			directory_search: 'directory_search',
-			searchTerm: '#directory_term',
+			directoryList: 'directory_main directory_list',
+			searchTerm: '#directory_term'
 		},
 		control: {
 			'directory_search button': {
@@ -14,7 +15,7 @@ Ext.define('SFASU.controller.Directory.Search', {
 			},
 			searchTerm: {
                 keyup: 'onSearch'
-            },
+            }
 		}
 	},
 	
@@ -47,35 +48,43 @@ Ext.define('SFASU.controller.Directory.Search', {
 			searchTerm = 'Pattillo';
 		}
 		
-		console.log('search: ' + searchTerm);
+		console.log(searchTerm);
 		
-		this.hideAxe();
-		this.getDirectory().push({
-			xtype: 'directory_list',
-			title: 'Search Results',
-			store: {
-		        model: 'SFASU.model.Directory.Person',
-				autoLoad: true,
-		        sorters: 'lastname',
+		if(!this.getDirectoryList()) {
+			//console.log('getDirectoryList');
+			this.hideAxe();
+			this.getDirectory().push({
+				xtype: 'directory_list',
+				title: 'Search Results',
+				store: {
+			        model: 'SFASU.model.Directory.Person',
+					autoLoad: true,
+			        sorters: 'lastname',
 
-		        grouper: {
-		            groupFn: function(record) {
-		                return record.get('lastname')[0];
-		            }
-		        },
+			        grouper: {
+			            groupFn: function(record) {
+			                return record.get('lastname')[0];
+			            }
+			        },
 
-				//pageSize: 10,
-		        proxy: {
-		            type: 'jsonp',
-		            url: 'http://library.sfasu.edu/mobile/directory_json.php?search&filter='
-							+ searchTerm,
+			        proxy: {
+			            type: 'jsonp',
 
-					reader: {
-						type: 'json',
-						rootProperty: ''
-					}
-		        }
-			}
-		});
+						url: serverPath,
+
+						extraParams: {
+							feature: 'directory',
+							search: 'true',
+							filter: searchTerm
+						},
+
+						reader: {
+							type: 'json',
+							rootProperty: ''
+						}
+			        }
+				}
+			});
+		}
 	}
 });

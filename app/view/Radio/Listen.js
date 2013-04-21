@@ -17,17 +17,14 @@ Ext.define('SFASU.view.Radio.Listen', {
 			style: {
 				backgroundImage: 'url(resources/images/ksau.png)',
 				backgroundRepeat: 'no-repeat',
-				backgroundPosition: 'center center',
+				backgroundPosition: 'center center'
 			},
 			html: '<div style="height:300px;">&nbsp;</div>'
-		},
-		{
+		},{
 			xtype: 'audio',
 			url: 'http://144.96.209.9:8004/',
 			hidden: true
-		},
-		
-		{
+		},{
 			xtype: 'toolbar',
 			ui: 'neutral',
 			docked: 'bottom',
@@ -44,43 +41,29 @@ Ext.define('SFASU.view.Radio.Listen', {
 			
 			items: [{
 				name: 'play',
-				iconCls: 'play2',
-			},
-			{
+				iconCls: 'play2'
+			},{
 				xtype: 'spacer'
-			},
-			{
+			},{
 				xtype: 'container',
 				name: 'status',
 				html: 'Press play.'
-			},
-			{
+			},{
 				xtype: 'spacer'
-			},
-			/*{
-				name: 'volume',
-				iconCls: 'volume_up',
-				//text: 'Play'
-			}*/
-			]
-		
-		},
-		{
+			}]
+		},{
 			xtype: 'panel',
 			name: 'volumepanel',
 			//ui: 'neutral',
 			docked: 'bottom',
 			hidden: true,
-			items: [
-				{
-					xtype: 'sliderfield',
-					name: 'volumeslider',
-					value: 50,
-					minValue: 0,
-					maxValue: 100
-				}
-			]
-		},
-		]
+			items: [{
+				xtype: 'sliderfield',
+				name: 'volumeslider',
+				value: 50,
+				minValue: 0,
+				maxValue: 100
+			}]
+		}]
 	}
 });

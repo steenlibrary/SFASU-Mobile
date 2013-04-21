@@ -8,14 +8,12 @@ Ext.define('SFASU.store.PineLog', {
 			{ name: 'link', type: 'string'},
 			{ name: 'author', type: 'string'},
 			{ name: 'thumbnail', type: 'string'},
-			{ name: 'publishedDate', type: 'date'},
+			{ name: 'publishedDate', type: 'date'}
         ],
 
 		idProperty: 'link',
         
 		autoLoad: false,
-        
-		//sorters: 'publishedDate',
 		
 		pageSize: 10,
 

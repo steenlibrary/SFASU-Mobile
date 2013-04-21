@@ -24,6 +24,6 @@ Ext.define('SFASU.view.Athletics.Sport.News', {
 		
 		emptyText: '<p class="no-searches">There\'s not a lot going on!</p>',
 		
-		itemTpl: '{title}',
+		itemTpl: '{title}'
     }
 });

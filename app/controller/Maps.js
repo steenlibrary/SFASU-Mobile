@@ -5,14 +5,12 @@ Ext.define('SFASU.controller.Maps', {
 		refs: {
 			maps: 'maps',
 			map: 'map',
-			homescreen: 'homescreen',
 			axe: 'maps [name=slidebutton]'
 		},
 		control: {
 			maps: {
 				show: 'showMaps',
-				pop: 'showAxe',
-				//push: 'hideAxe'
+				pop: 'showAxe'
 			},
 			'maps list': {
 				itemtap: 'showMap',

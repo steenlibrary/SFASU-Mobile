@@ -6,18 +6,19 @@ Ext.define('SFASU.store.Alerts', {
 		storeId: 'Alerts',
 		
 		fields: [
-			'status', 
-			'title'
+			'id',
+			'headline',
+			'message'
 		],
 		
-		idProperty: 'title',
+		idProperty: 'id',
 			
         autoLoad: true,
 
         proxy: {
             type: 'jsonp',
 
-			url: 'http://library.sfasu.edu/mobile/data/index.php',
+			url: serverPath,
 			
 			extraParams: {
 	            feature: 'campus_alert'

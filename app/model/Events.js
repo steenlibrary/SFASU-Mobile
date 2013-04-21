@@ -10,7 +10,7 @@ Ext.define('SFASU.model.Events', {
             //'link',
 			{ name: 'link', type: 'string'},
             //'publishedDate'
-			{ name: 'date', type: 'date' },
+			{ name: 'date', type: 'date' }
         ],
 		idProperty: 'link'
     }

@@ -11,6 +11,7 @@ Ext.define('SFASU.view.Videos.Phone', {
     xtype: 'videos_phone',
 
     config: {
+		
 		title: 'Recent Videos',
 
        	store: 'Videos',
@@ -30,7 +31,6 @@ Ext.define('SFASU.view.Videos.Phone', {
 				+ '<strong>{title}</strong>'
 				+ '<br /><br />{duration}'
 			+ '</div>'
-			+ '<div style="clear:both;"></div>',
-        
+			+ '<div style="clear:both;"></div>'
     }
 });

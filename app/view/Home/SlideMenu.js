@@ -6,7 +6,8 @@ Ext.define("SFASU.view.Home.SlideMenu", {
         'Ext.MessageBox',
         'Ext.Panel',
         'Ext.Toolbar',
-        'Ext.event.publisher.Dom'
+        'Ext.event.publisher.Dom',
+		'Ext.Img'
     ],
     
     config: {
@@ -18,6 +19,7 @@ Ext.define("SFASU.view.Home.SlideMenu", {
          *  to false.
          */
         slideSelector: 'container',
+		//slideSelector: false,
         
         /**
          *  Time in milliseconds to animate the closing of the container
@@ -31,17 +33,17 @@ Ext.define("SFASU.view.Home.SlideMenu", {
          *  modified the width.
          */
         list: {
-            maxDrag: 210,
+            maxDrag: 250,
             width: 210,
             items: [{
                 xtype: 'toolbar',
                 docked: 'top',
                 ui: 'light',                    
-                cls: 'sfasuToolbar',
+                //cls: 'sfasuToolbar',
 
 				title: {
                     //title: 'Navigation',
-                    centered: false,
+                    centered: true,
                     width: 210,
                     left: 0
                 },
@@ -51,16 +53,16 @@ Ext.define("SFASU.view.Home.SlideMenu", {
                  *  Here's an example of how to add a different type of
                  *  component into the toolbar of the list.
                  */
-                /*
+				 
                 items: [{
-                    xtype: 'searchfield',
-                    placeHolder: 'search',
-                    width: 180
+                    xtype: 'img',
+                    //placeHolder: 'search',
+					//centered: true,
+					cls: 'sfasuToolbar',
+					html: '&nbsp;',
+                    width: 210
                 }]
-				*/
-                
             }]
-            
         },
         
         /**
@@ -75,24 +77,25 @@ Ext.define("SFASU.view.Home.SlideMenu", {
         
         defaults: {
             style: 'background: #fff',
-            xtype: 'container',
+            xtype: 'container'
         },
         
         items: [{
             title: 'What\'s New',
 			icon: 'resources/images/icons/whatsnew-75.png',
+			group: 'SFASU Mobile',
             slideButton: {
-                selector: 'titlebar',
+                selector: 'titlebar'
             },
             items: [{
 				xtype: 'feed'
-			},]
+			}]
         },{
 			title: 'Become a Student',
 			icon: 'resources/images/icons/newstudent-75.png',
 			group: 'About',
 			slideButton: {
-				selector: 'navigationview titlebar',
+				selector: 'titlebar'
 			},
 			items: [{
 				xtype: 'newstudent'
@@ -102,11 +105,7 @@ Ext.define("SFASU.view.Home.SlideMenu", {
 			icon: 'resources/images/icons/news-75.png',
 			group: 'About',
 			slideButton: {
-                selector: 'navigationview titlebar',
-                iconMask: true,
-				align: 'center',
-                iconCls: 'axe',
-				//ui: 'plain'
+                selector: 'titlebar'
             },
             items: [{
 				xtype: 'news'
@@ -116,10 +115,7 @@ Ext.define("SFASU.view.Home.SlideMenu", {
 			icon: 'resources/images/icons/events-75.png',
 			group: 'About',
 			slideButton: {
-                selector: 'titlebar',
-                iconMask: true,
-                iconCls: 'axe',
-				//ui: 'plain'
+                selector: 'titlebar'
             },
 			items: [{
 				xtype: 'events'
@@ -129,10 +125,7 @@ Ext.define("SFASU.view.Home.SlideMenu", {
 			icon: 'resources/images/icons/traditions-75.png',
 			group: 'About',
 			slideButton: {
-                selector: 'titlebar',
-                iconMask: true,
-                iconCls: 'axe',
-				//ui: 'plain'
+                selector: 'titlebar'
             },
 			items: [{
 				xtype: 'traditions'
@@ -142,10 +135,7 @@ Ext.define("SFASU.view.Home.SlideMenu", {
 			icon: 'resources/images/icons/map-75.png',
 			group: 'About',
 			slideButton: {
-                selector: 'titlebar',
-                iconMask: true,
-                iconCls: 'axe',
-				//ui: 'plain'
+                selector: 'titlebar'
             },
 			items: [{
 				xtype: 'maps'
@@ -155,10 +145,7 @@ Ext.define("SFASU.view.Home.SlideMenu", {
 			icon: 'resources/images/icons/directory-75.png',
 			group: 'About',
 			slideButton: {
-                selector: 'titlebar',
-                iconMask: true,
-                iconCls: 'axe',
-				//ui: 'plain'
+                selector: 'titlebar'
             },
 			items: [{
 				xtype: 'directory_main'
@@ -168,15 +155,9 @@ Ext.define("SFASU.view.Home.SlideMenu", {
 			icon: 'resources/images/icons/alert-75.png',
 			group: 'About',
 			slideButton: {
-				selector: 'toolbar',
-				iconMask: true,
-				iconCls: 'axe',
+				selector: 'titlebar'
 			},
 			items: [{
-                xtype: 'toolbar',
-                title: 'Campus Alerts',
-                docked: 'top'
-            },{
 				xtype: 'alerts'
 			}]
 		},{
@@ -184,10 +165,7 @@ Ext.define("SFASU.view.Home.SlideMenu", {
 			icon: 'resources/images/icons/athletics-75.png',
 			group: 'Athletics',
 			slideButton: {
-                selector: 'titlebar',
-                iconMask: true,
-                iconCls: 'axe',
-				//ui: 'plain'
+                selector: 'titlebar'
             },
 			items: [{
 				xtype: 'athletics_main'
@@ -197,10 +175,7 @@ Ext.define("SFASU.view.Home.SlideMenu", {
 			icon: 'resources/images/icons/library-75.png',
 			group: 'Academics',
 			slideButton: {
-                selector: 'titlebar',
-                iconMask: true,
-                iconCls: 'axe',
-				//ui: 'plain'
+                selector: 'titlebar'
             },
 			items: [{
 				xtype: 'library_main'
@@ -210,10 +185,7 @@ Ext.define("SFASU.view.Home.SlideMenu", {
 			group: 'Academics',
 			icon: 'resources/images/icons/courses-75.png',
 			slideButton: {
-                selector: 'titlebar',
-                iconMask: true,
-                iconCls: 'axe',
-				//ui: 'plain'
+                selector: 'titlebar'
             },
 			items: [{
 				xtype: 'courses'
@@ -223,10 +195,7 @@ Ext.define("SFASU.view.Home.SlideMenu", {
 			group: 'Academics',
 			icon: 'resources/images/icons/aarc-75.png',
 			slideButton: {
-                selector: 'titlebar',
-                iconMask: true,
-                iconCls: 'axe',
-				//ui: 'plain'
+                selector: 'titlebar'
             },
 			items: [{
 				xtype: 'aarc_main'
@@ -236,10 +205,7 @@ Ext.define("SFASU.view.Home.SlideMenu", {
 			group: 'Media',
 			icon: 'resources/images/icons/video-75.png',
 			slideButton: {
-                selector: 'titlebar',
-                iconMask: true,
-                iconCls: 'axe',
-				//ui: 'plain'
+                selector: 'titlebar'
             },
 			items: [{
 				xtype: 'videos_main'
@@ -249,10 +215,7 @@ Ext.define("SFASU.view.Home.SlideMenu", {
 			icon: 'resources/images/icons/ksau-75.png',
 			group: 'Media',
 			slideButton: {
-                selector: 'titlebar',
-                iconMask: true,
-                iconCls: 'axe',
-				//ui: 'plain'
+                selector: 'titlebar'
             },
 			items: [{
 				xtype: 'radio_main'
@@ -262,10 +225,7 @@ Ext.define("SFASU.view.Home.SlideMenu", {
 			icon: 'resources/images/icons/social-75.png',
 			group: 'Media',
 			slideButton: {
-                selector: 'titlebar',
-                iconMask: true,
-                iconCls: 'axe',
-				//ui: 'plain'
+                selector: 'titlebar'
             },
 			items: [{
 				xtype: 'social'
@@ -275,10 +235,7 @@ Ext.define("SFASU.view.Home.SlideMenu", {
 			icon: 'resources/images/icons/pinelog-75.png',
 			group: 'Media',
 			slideButton: {
-                selector: 'titlebar',
-                iconMask: true,
-                iconCls: 'axe',
-				//ui: 'plain'
+                selector: 'titlebar'
             },
 			items: [{
 				xtype: 'pinelog'
@@ -289,9 +246,7 @@ Ext.define("SFASU.view.Home.SlideMenu", {
 			icon: 'resources/images/icons/about-75.png',
 			group: 'More',
 			slideButton: {
-				selector: 'titlebar',
-				iconMask: true,
-				iconCls: 'axe'
+				selector: 'titlebar'
 			},
 			items: [{
 				xtype: 'about'

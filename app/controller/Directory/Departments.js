@@ -3,17 +3,14 @@ Ext.define('SFASU.controller.Directory.Departments', {
 
 	config: {
 		refs: {
-			//homescreen: 'homescreen',
 			directory: 'directory_main',
 			directoryList: 'directory_main directory_list',
-			axe: 'directory_main [name=slidebutton]',
+			axe: 'directory_main [name=slidebutton]'
 		},
 		control: {
 			'directory_departments': {
 				show: 'showDepartments',
-				//itemtap: 'showList',
-				itemsingletap: 'showList',
-				itemdoubletap: 'showList',
+				itemtap: 'showList'
 			}
 		}
 	},
@@ -52,29 +49,22 @@ Ext.define('SFASU.controller.Directory.Departments', {
 		            	}
 		        	},
 
-					//pageSize: 10,
 		        	proxy: {
 		            	type: 'jsonp',
-		            	url: 'http://library.sfasu.edu/mobile/directory_json.php?search&filter='
-								+ record.get('department'),
+		
+		            	url: serverPath,
+								
+						extraParams: {
+							feature: 'directory',
+							search: 'true',
+							filter: record.get('department')
+						},
 
 						reader: {
 							type: 'json',
-							rootProperty: 'responseData.feed.entries'
+							rootProperty: ''
 						}
-		        	},
-					listeners: {
-						beforeload: function() {
-							//console.log("before load");
-			                Ext.Viewport.setMasked({
-			                    xtype: 'loadmask'
-			                });
-			            },
-						load: function() {
-							// Do some stuff here ...
-							Ext.Viewport.setMasked(false);
-						}
-					}
+		        	}
 				}
 			});
 		}

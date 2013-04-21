@@ -24,7 +24,7 @@ Ext.define('SFASU.view.Maps', {
 
 	        emptyText: '<p class="no-searches">Could not retrieve map locations.</p>',
 
-	        itemTpl: '{name}',
+	        itemTpl: '{name}'
 		}]
     }
 });

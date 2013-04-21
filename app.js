@@ -1,7 +1,7 @@
 /**
  * SFASU Mobile version 2.0
  *
- * Sencha Touch 2
+ * Sencha Touch 2.1
  *
  * Copyright (C) Stephen F. Austin State University, 2012.
  *
@@ -16,15 +16,16 @@ Ext.Loader.setConfig({
 
 //<debug>
 Ext.Loader.setPath({
-    'Ext': 'sdk/src',
+    'Ext': 'touch/src',
 	'Ext.ux': './ux',
-    'SFASU': 'app'
+    'SFASU': 'app',
 });
 //</debug>
 
-Ext.util.openLink = function(href) {
-	if(childBrowser) {
-		childBrowser.showWebPage(href);
+var openLink = function(href) {
+	if(window) {
+		//childBrowser.showWebPage(href);
+		childBrowser = window.open(href, '_blank');
 	} else {
 		Ext.Msg.confirm('External Link', 'Open in browser?', function(result){
             if (result == 'yes') {
@@ -34,7 +35,7 @@ Ext.util.openLink = function(href) {
   }
 };
 
-Ext.util.callNumber = function(phone) {
+var callNumber = function(phone) {
 	Ext.Msg.confirm('Please Confirm', 'Are you sure you want to dial ' + phone + '?', function(result){
         if (result == 'yes') {
             window.location.href = 'tel:' + phone;
@@ -42,7 +43,7 @@ Ext.util.callNumber = function(phone) {
     });
 };
 
-Ext.util.email = function(email) {
+var email = function(email) {
 	Ext.Msg.confirm('Please Confirm', 'Are you sure you want to email ' + email + '?', function(result){
         if (result == 'yes') {
             window.location.href = 'mailto:' + email;
@@ -50,10 +51,9 @@ Ext.util.email = function(email) {
     });
 };
 
+
 Ext.application({
     name: 'SFASU',
-
- 	serverPath: 'http://library.sfasu.edu/mobile/data/index.php',
 
     requires: [
         'Ext.MessageBox'
@@ -105,6 +105,8 @@ Ext.application({
 		'PineLog',
 		
 		'Radio.Listen',
+		
+		'Traditions',
 		
 		'Twitter',
 		
@@ -160,7 +162,7 @@ Ext.application({
 		
 		'WhatsNew'
 	],
-	
+
     views: [
 		'Home.SlideMenu',
 		'Home.Feed',
@@ -222,8 +224,9 @@ Ext.application({
 		
 		'Social',
 		
-		'Traditions',
-		'TraditionsPane',
+		'Traditions.Main',
+		'Traditions.More',
+		'Traditions.Pane',
 		
 		'Facebook',
 		'Twitter',
@@ -247,12 +250,9 @@ Ext.application({
 
     startupImage: {
         '320x460': 'resources/startup/320x460.jpg',
-        //'640x920': 'resources/startup/640x920.png',
-		'640x920': 'resources/loading/Default@2x.png',
-        //'768x1004': 'resources/startup/768x1004.png',
-		'768x1004': 'resources/loading/Default@2x.png',
-        //'748x1024': 'resources/startup/748x1024.png',
-		'748x1024': 'resources/loading/Default@2x.png',
+        '640x920': 'resources/startup/640x920.png',
+        '768x1004': 'resources/startup/768x1004.png',
+        '748x1024': 'resources/startup/748x1024.png',
         '1536x2008': 'resources/startup/1536x2008.png',
         '1496x2048': 'resources/startup/1496x2048.png'
     },
@@ -260,20 +260,18 @@ Ext.application({
     launch: function() {
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
-
-        // Initialize the main view
-		Ext.Viewport.add(Ext.create('SFASU.view.Home.SlideMenu'));
+		
 		//onDeviceReady();
 		// install childBrowser
 		if(window.plugins) {
-			childBrowser = window.plugins.childBrowser;
+			//childBrowser = ChildBrowser.install();
+			//childBrowser = window.plugins.childBrowser;
 			//childBrowser.showWebPage("http://google.com");
 		}
-    },
 
-	onReady: function() {
-		
-	},
+        // Initialize the main view
+		Ext.Viewport.add(Ext.create('SFASU.view.Home.SlideMenu'));
+    },
 
     onUpdated: function() {
         Ext.Msg.confirm(

@@ -1,14 +1,17 @@
 $base-color: #330066;
 //$active-color: #cccccc;
 
-$base-gradient: 'flat';
+//$base-gradient: 'flat';
 
 $toolbar-gradient: 'matte';
 
-//$tabs-bar-gradient: 'flat';
-//$tables-dark-active-color: $active-color;
+$tabs-bar-gradient: 'flat';
+//$light-tab-active: #333;
+//$tabs-dark-color: #330066;
+//$tabs-dark-active: #fff;
 
-//$tabs-dark: #ccc;
+$tabs-dark-active-color: #330066;
+$tabs-dark: #000;
 
 $color-light: #777;
 $complement: #777;
@@ -17,6 +20,7 @@ $list-header-bg-color: #ccc;
 $list-header-color: #777;
 
 $include-default-icons: false;
+$include-highlights: true;
 
 @import 'sencha-touch/default/all';
 
@@ -43,7 +47,7 @@ $include-default-icons: false;
 @include pictos-iconmask('action');
 @include pictos-iconmask('address_book');
 @include pictos-iconmask('arrow_left');
-@include pictos-iconmask('axe_em');
+//@include pictos-iconmask('axe_em');
 @include pictos-iconmask('axe');
 @include pictos-iconmask('bookmarks');
 @include pictos-iconmask('broadcast');
@@ -56,17 +60,19 @@ $include-default-icons: false;
 @include pictos-iconmask('help');
 @include pictos-iconmask('home');
 @include pictos-iconmask('info');
-@include pictos-iconmask('list');
-@include pictos-iconmask('mail');
 @include pictos-iconmask('layout');
+@include pictos-iconmask('list');
+@include pictos-iconmask('lumberjack_head');
+@include pictos-iconmask('mail');
 @include pictos-iconmask('maps');
 @include pictos-iconmask('more');
-@include pictos-iconmask('news');
+//@include pictos-iconmask('news');
 @include pictos-iconmask('pause');
 @include pictos-iconmask('phone1');
 @include pictos-iconmask('play_black1');
 @include pictos-iconmask('play2');
 @include pictos-iconmask('search1');
+@include pictos-iconmask('sfa_logo');
 @include pictos-iconmask('star');
 @include pictos-iconmask('team');
 @include pictos-iconmask('team1');
@@ -84,7 +90,6 @@ $include-default-icons: false;
 @include pictos-iconmask('volume_mute');
 @include pictos-iconmask('volume_up');
 @include pictos-iconmask('warning_black');
-@include pictos-iconmask('warming_dotted');
 
 .campus-alerts {
 	padding: 20px;
@@ -97,10 +102,11 @@ $include-default-icons: false;
     background-image: url('../images/logo.png');
     background-repeat: no-repeat;
     /*background-attachment:fixed;*/
-    background-position:center;
+    /*background-position:center;*/
     background-size: 149px 35px;/*cover;*/
     /*background-color: #000066;*/
-	width: 100%;
+	width: 149px;
+	height: 35px;
 }
 
 .no-searches {
@@ -139,12 +145,44 @@ $include-default-icons: false;
 	background-size: 100% auto;
 }
 
-.steveBackground{
+.steveBackground {
     background: #000;
     background-image: url('../images/stephen-f-austin.jpg');
     background-repeat: no-repeat;
     //background-position: center;
 	background-size: 100% auto;
+}
+
+.steveBackgroundTablet {
+    background: #000;
+    background-image: url('../images/stephen-f-austin.jpg');
+    background-repeat: no-repeat;
+    //background-position: center;
+	background-size: auto 100%;
+}
+
+.steveBackground-portrait {
+    background: #000;
+    background-image: url('../images/stephen-f-austin.jpg');
+    background-repeat: no-repeat;
+    //background-position: center;
+	background-size: 100% auto;
+}
+
+.steveBackground-landscape {
+    background: #000;
+    background-image: url('../images/stephen-f-austin.jpg');
+    background-repeat: no-repeat;
+    //background-position: center;
+	background-size: auto 100%;
+}
+
+.traditionsBackground-portrait {
+	background-size: 100% auto;
+}
+
+.traditionsBackground-landscape {
+	background-size: auto 100%;
 }
 
 .traditions_card {
@@ -283,10 +321,9 @@ $include-default-icons: false;
 }
 
 .feedTwitter {
-	background-image: url(../images/twitter-icon.png) !important;
+	background-image: url(../images/new_twitter_logo.jpg) !important;
 	background-repeat: no-repeat;
 	background-position: right bottom;
-	background-size: 25%;
 	color: #fff;
 }
 

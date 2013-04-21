@@ -1,12 +1,14 @@
 Ext.define("SFASU.view.Athletics.Sport.Main", {
     extend: 'Ext.tab.Panel',
+	
 	xtype: 'athletics_sport_main',
 	
     requires: [
-        'Ext.TitleBar',
+        'Ext.TitleBar'
     ],
+	
     config: {
-        tabBarPosition: 'bottom',
+        tabBarPosition: 'bottom'
     },
 
 	items:[

@@ -18,18 +18,15 @@ Ext.define('SFASU.view.Courses', {
 				
 				fields: ['name', 'id', 'url'],
 				
-				data: [
-					{
-						name: 'Desire2Learn',
-						id: 'Desire2Learn',
-						url: 'https://d2l.sfasu.edu/d2l/m/home'
-					},
-					{
-						name: 'MySFA',
-						id: 'MySFA',
-						url: 'https://mysfa-prod.sfasu.edu'
-					},
-				]
+				data: [{
+					name: 'Desire2Learn',
+					id: 'Desire2Learn',
+					url: 'https://d2l.sfasu.edu/d2l/m/home'
+				},{
+					name: 'MySFA',
+					id: 'MySFA',
+					url: 'https://mysfa-prod.sfasu.edu'
+				}]
 			}
 		}]
 	

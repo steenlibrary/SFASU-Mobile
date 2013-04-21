@@ -4,7 +4,7 @@ Ext.define("SFASU.view.About", {
 	
     requires: [
         'Ext.TitleBar',
-		'Ext.field.Email',
+		'Ext.field.Email'
     ],
 
 	xtype: 'about',
@@ -26,6 +26,7 @@ Ext.define("SFASU.view.About", {
 					title: 'About',
 					iconCls: 'help',
 					styleHtmlContent: true,
+					scrollable: true,
 					
 					items: [{
 						xtype: 'panel',
@@ -84,7 +85,7 @@ Ext.define("SFASU.view.About", {
 								role: 'Development & Project Management', 
 								department: 'Campus Web Development',
 								personId: '21901'
-							},
+							}
 						]
 					},
 					

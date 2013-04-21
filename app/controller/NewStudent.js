@@ -7,12 +7,12 @@ Ext.define('SFASU.controller.NewStudent', {
 		},
 		control: {
 			'newstudent list': {
-				itemtap: 'showLink',
+				itemtap: 'showLink'
 			}
 		}
 	},
 	
 	showLink: function(list, index, element, record) {
-		Ext.util.openLink(record.get('url'));
+		openLink(record.get('url'));
 	}
 });

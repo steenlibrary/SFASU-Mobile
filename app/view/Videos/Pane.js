@@ -22,7 +22,6 @@ Ext.define('SFASU.view.Videos.Pane', {
 		items:[{
 			xtype: 'button',
 			text: 'test'
-			
-		}],
+		}]
 	}
 });

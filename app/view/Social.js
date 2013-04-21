@@ -3,7 +3,7 @@ Ext.define("SFASU.view.Social", {
 	extend: 'Ext.navigation.View',
 	
     requires: [
-        'Ext.TitleBar',
+        'Ext.TitleBar'
     ],
 
 	xtype: 'social',
@@ -15,16 +15,9 @@ Ext.define("SFASU.view.Social", {
 
 			tabBarPosition: 'bottom',
 
-	        items: [
-				{
-					xtype: 'twitter'
-				},
-				/*
-				{
-					xtype: 'facebook'
-				}
-				*/
-	        ]
+	        items: [{
+				xtype: 'twitter'
+			}]
 		}]
     }
 });

@@ -3,13 +3,13 @@ Ext.define("SFASU.view.Athletics.Main", {
 	extend: 'Ext.navigation.View',
 	
     requires: [
-        'Ext.TitleBar',
+        'Ext.TitleBar'
     ],
 
 	xtype: 'athletics_main',
 	
     config: {
-		useTitleForBackButtonText: true,
+		//useTitleForBackButtonText: true,
 		
 		items: [{
 			xtype: 'list',
@@ -17,18 +17,36 @@ Ext.define("SFASU.view.Athletics.Main", {
 			//tabBarPosition: 'bottom',
 			itemTpl: '{name}',
 			grouped: true,
+			
 	        store: {
 				autoLoad: true,
-				fields: ['name', 'id', 'type', 'newsFeed', 'scheduleFeed', 'rosterFeed'],
+				
+				grouper: {
+					sortProperty: 'group_index',
+		            groupFn: function(record) {
+						var types = {
+							'men': 'Men\'s Sports',
+							'women':'Women\'s Sports',
+							'combined':'Combined Sports',
+							'general': 'What\'s New'
+						};
+		                return types[record.get('type')];
+		            }
+				},
+				
+				fields: ['group_index', 'name', 'id', 'type', 'newsFeed', 'scheduleFeed', 'rosterFeed'],
+				
 				data: [
 					// Top Items
 					{
+						group_index: 0,
 						name: 'Top Stories', 
 						id: 'athletics_news', 
 						type: 'general', 
 						newsFeed: 'http://sfajacks.cstv.com/headline-rss.xml'
 					},
 					{
+						group_index: 0,
 						name: 'Top Events & Scores', 
 						id: 'athletics_events', 
 						type: 'general',
@@ -37,6 +55,7 @@ Ext.define("SFASU.view.Athletics.Main", {
 
 					// Men's Sports
 			   		{
+						group_index: 1,
 						name: 'Football', 
 						id: 'athletics_football_main', 
 						type: 'men',
@@ -45,6 +64,7 @@ Ext.define("SFASU.view.Athletics.Main", {
 						rosterFeed: 'm-footbl'
 					},
 			        {
+						group_index: 1,
 						name: 'Basketball', 
 						id: 'athletics_basketball_main', 
 						type: 'men',
@@ -53,6 +73,7 @@ Ext.define("SFASU.view.Athletics.Main", {
 						rosterFeed: 'm-baskbl'
 					},
 			        {
+						group_index: 1,
 						name: 'Baseball', 
 						id: 'athletics_baseball_main', 
 						type: 'men',
@@ -60,6 +81,7 @@ Ext.define("SFASU.view.Athletics.Main", {
 						rosterFeed: 'm-basebl'
 					},
 					{
+						group_index: 1,
 						name: 'Golf', 
 						id: 'athletics_golf_main', 
 						type: 'men',
@@ -69,6 +91,7 @@ Ext.define("SFASU.view.Athletics.Main", {
 
 					// Women's Sports
 			        {
+						group_index: 2,
 						name: 'Basketball', 
 						id: 'athletics_w_basketball_main', 
 						type: 'women',
@@ -77,6 +100,7 @@ Ext.define("SFASU.view.Athletics.Main", {
 						rosterFeed: 'w-baskbl'
 					},
 					{
+						group_index: 2,
 						name: 'Softball', 
 						id: 'athletics_w_softball_main', 
 						type: 'women',
@@ -84,6 +108,7 @@ Ext.define("SFASU.view.Athletics.Main", {
 						rosterFeed: 'w-softbl'
 					},
 					{
+						group_index: 2,
 						name: 'Soccer', 
 						id: 'athletics_w_soccer_main', 
 						type: 'women',
@@ -91,6 +116,7 @@ Ext.define("SFASU.view.Athletics.Main", {
 						rosterFeed: 'w-soccer'
 					},
 					{
+						group_index: 2,
 						name: 'Tennis', 
 						id: 'athletics_w_tennis_main', 
 						type: 'women',
@@ -98,6 +124,7 @@ Ext.define("SFASU.view.Athletics.Main", {
 						rosterFeed: 'w-tennis'
 					},
 					{
+						group_index: 2,
 						name: 'Volleyball', 
 						id: 'athletics_w_volleyball_main', 
 						type: 'women',
@@ -105,6 +132,7 @@ Ext.define("SFASU.view.Athletics.Main", {
 						rosterFeed: 'w-volley'
 					},
 					{
+						group_index: 2,
 						name: 'Golf', 
 						id: 'athletics_w_golf_main', 
 						type: 'women',
@@ -112,6 +140,7 @@ Ext.define("SFASU.view.Athletics.Main", {
 						rosterFeed: 'w-golf'
 					},
 					{
+						group_index: 2,
 						name: 'Bowling', 
 						id: 'athletics_w_bowling_main', 
 						type: 'women',
@@ -121,6 +150,7 @@ Ext.define("SFASU.view.Athletics.Main", {
 
 					// Combined Sports
 					{
+						group_index: 3,
 						name: 'Track', 
 						id: 'athletics_c_track_main', 
 						type: 'combined',
@@ -128,24 +158,14 @@ Ext.define("SFASU.view.Athletics.Main", {
 						rosterFeed: 'c-track'
 					},
 					{
+						group_index: 3,
 						name: 'Cross Country', 
 						id: 'athletics_c_crosscountry_main', 
 						type: 'combined',
 						newsFeed: 'http://sfajacks.cstv.com/sports/c-xc/headline-rss.xml',
 						rosterFeed: 'c-xc'
 					}
-			    ],
-				grouper: {
-		            groupFn: function(record) {
-						var types = {
-							'men': 'Men\'s Sports',
-							'women':'Women\'s Sports',
-							'combined':'Combined Sports',
-							'general': ''
-						};
-		                return types[record.get('type')];
-		            }
-		        }
+			    ]
 			}
 		}]
     }

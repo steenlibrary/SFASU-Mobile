@@ -3,7 +3,6 @@ Ext.define('SFASU.controller.Directory.List', {
 
 	config: {
 		refs: {
-			//homescreen: 'homescreen',
 			directory: 'directory_main',
 			library: 'library_main',
 			AARC: 'aarc_main',
@@ -32,22 +31,22 @@ Ext.define('SFASU.controller.Directory.List', {
 			'directory_main directory_list': {
 				itemtap: 'showPersonDirectory',
 				itemsingletap: 'showPersonDirectory',
-				itemdoubletap: 'showPersonDirectory',
+				itemdoubletap: 'showPersonDirectory'
 			},
 			'aarc_main directory_list': {
 				itemtap: 'showPersonAARC',
 				itemsingletap: 'showPersonAARC',
-				itemdoubletap: 'showPersonAARC',
+				itemdoubletap: 'showPersonAARC'
 			},
 			'library_main directory_list': {
 				itemtap: 'showPersonLibrary',
 				itemsingletap: 'showPersonLibrary',
-				itemdoubletap: 'showPersonLibrary',
+				itemdoubletap: 'showPersonLibrary'
 			},
 			'directory_favorites': {
 				itemtap: 'showPersonDirectory',
 				itemsingletap: 'showPersonDirectory',
-				itemdoubletap: 'showPersonDirectory',
+				itemdoubletap: 'showPersonDirectory'
 			}
 		}
 	},
@@ -79,8 +78,8 @@ Ext.define('SFASU.controller.Directory.List', {
 	},
 	
 	showPersonDirectory: function(list, index, element, record) {
-		console.log('showPersonDirectory');
-		console.log(list.up());
+		//console.log('showPersonDirectory');
+		//console.log(list.up());
 		if(!this.getDirectoryPerson()) {
 			this.showPerson(list, index, element, record, 'directory');
 		}
@@ -133,7 +132,7 @@ Ext.define('SFASU.controller.Directory.List', {
 					iconsCls: 'mail',
 					type: 'E-mail',
 					data: record.get('email')
-				},
+				}
 			]
 		});
 		

@@ -26,7 +26,8 @@ Ext.define('SFASU.view.Events', {
 
 	        emptyText: '<p class="no-searches">No upcoming events were found.</p>',
 
-	        itemTpl: '<div><p class="calendar">{date:date("j")} <em>{date:date("M")}</em></p> {title}</div><div style="clear:both"></div>',
+	        itemTpl: '<div><p class="calendar">{date:date("j")} <em>{date:date("M")}</em></p> {title}</div>'
+				+ '<div style="clear:both"></div>'
 		}]
     }
 });

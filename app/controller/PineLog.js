@@ -13,8 +13,7 @@ Ext.define('SFASU.controller.PineLog', {
 				pop: 'showAxe'
 			},
 			'pinelog list': {
-				itemtap: 'showStory',
-				//disclose: 'showStory',
+				itemtap: 'showStory'
 			}
 		}
 	},
@@ -41,12 +40,23 @@ Ext.define('SFASU.controller.PineLog', {
 			this.getPinelog().push({
 				xtype: 'panel',
 				title: record.get('title'),
-				html: '<h3>' + record.get('title') + '</h3>'
-				 	+ record.get('author') + '<br/>'
-					+ (record.get('thumbnail') ? '<img style="float: right;" width="50%" src="' + record.get('thumbnail') + '" />' : '' )
-					+ record.get('content'),
 				scrollable: true,
-				styleHtmlContent: true
+				styleHtmlContent: true,
+				
+				items: [{
+					xtype: 'panel',
+					html: '<h3>' + record.get('title') + '</h3>'
+					 	+ record.get('author') + '<br/>'
+						+ (record.get('thumbnail') ? '<img style="float: right;" src="' + record.get('thumbnail') + '" />' : '' )
+						+ record.get('content') + '<br/>'
+				},{
+					xtype: 'button',
+					text: 'View Full Article',
+					
+					handler: function() {
+						openLink(record.get('link'));
+					}
+				}]
 			});
 		}
 	}

@@ -10,14 +10,14 @@ Ext.define('SFASU.controller.AARC.Groups', {
 		control: {
 			'aarc_sigroups': {
 				show: 'showGroups',
-				itemtap: 'showGroup',
+				itemtap: 'showGroup'
 			}
 		}
 	},
 	
 	hideAxe: function() {
 		if(this.getAxe()) {
-			this.getAxe().hide();
+			this.getAxe().hide({type: 'fadeOut'});
 		}
 	},
 	
@@ -26,7 +26,6 @@ Ext.define('SFASU.controller.AARC.Groups', {
 	},
 	
 	showGroup: function(list, index, element, record) {
-		console.log('showGroup');
 		if(!this.getGroup()) {
 			this.hideAxe();
 			this.getAarc().push({

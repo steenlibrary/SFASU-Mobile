@@ -51,7 +51,7 @@ Ext.define('SFASU.store.WhatsNew', {
 						    tap: {
 						        fn: function() {
 									if(picture.get('link') != '') {
-										Ext.util.openLink(picture.get('link'));
+										openLink(picture.get('link'));
 									}
 								},
 						        element: 'element'

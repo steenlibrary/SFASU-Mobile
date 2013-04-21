@@ -8,8 +8,7 @@ Ext.define('SFASU.controller.Athletics.Sport.Main', {
 		},
 		control: {
 			'athletics_sport_news': {
-				itemtap: 'showStory',
-				//disclose: 'showStory',
+				itemtap: 'showStory'
 			}
 		}
 	},

@@ -9,14 +9,13 @@ Ext.define('SFASU.controller.Athletics.Main', {
 			axe: 'athletics_main [name=slidebutton]'
 		},
 		control: {
-			'athletics_main list': {
+			athleticsList: {
 				itemsingletap: 'showSport',
-				itemdoubletap: 'showSport',
-				//show: 'showAxe'
+				itemdoubletap: 'showSport'
 			},
+			
 			athletics: {
-				pop: 'showAxe',
-				//push: 'hideAxe'
+				pop: 'showAxe'
 			}
 		}
 	},

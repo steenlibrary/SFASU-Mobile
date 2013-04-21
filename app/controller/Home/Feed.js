@@ -5,14 +5,29 @@ Ext.define('SFASU.controller.Home.Feed', {
 		refs: {
 			feed: 'feed',
 			feedDataview: 'feed dataview',
+			whatsNew: 'feed panel whatsnew',
 			feedTitle: 'feed titlebar',
 			axe: 'feed [name=slidebutton]',
-			feedChild: 'feed panel',
+			feedChild: 'feed panel'
 		},
 		control: {
+			
+			'viewport': {
+				orientationchange: 'onOrientationChange'
+			},
+			
 			feed: {
 				pop: 'showAxe'
 			},
+			
+			whatsNew: {
+				show: 'onOrientationChange',
+				initialize: function() {
+					console.log('whats new painted');
+					onOrientationChange();
+				}
+			},
+			
 			'feed dataview': {
 				itemtap: 'feedAction',
 				refresh: 'feedUpdated'
@@ -32,6 +47,14 @@ Ext.define('SFASU.controller.Home.Feed', {
 		}
 	},
 	
+	onOrientationChange: function() {
+		console.log('set carousel height');
+		this.getWhatsNew().setHeight((Ext.Viewport.getSize().width/(755/312)) + 'px');
+		//height: (Ext.Viewport.getSize().height/(755/312)) + 'px',
+		
+		//alert('orientationchange: ' + orientation);
+	},
+	
 	feedUpdated: function(dataview, eOpts) {
 		//Ext.getStore('Home.Feed').load();
 		console.log('feed updated');
@@ -46,13 +69,22 @@ Ext.define('SFASU.controller.Home.Feed', {
 					this.getFeed().push({
 						xtype: 'panel',
 						title: record.get('title'),
-						html: '<h3>' + record.get('title') + '</h3>'
-						    + Ext.Date.format(record.get('publishedDate'), 'l, F j, Y') 
-							+ '<br/><br/>'
-							+ '<img style="float: right;" src="' + record.get('image') + '" width="50%"/>'
-							+ record.get('content'),
 						scrollable: true,
-						styleHtmlContent: true
+						styleHtmlContent: true,
+						items: [{
+							html: '<h3>' + record.get('title') + '</h3>'
+								+ Ext.Date.format(record.get('publishedDate'), 'l, F j, Y') 
+								+ '<br/><br/>'
+								+ '<img style="float: right;" src="' + record.get('image') + '" width="50%"/>'
+								+ record.get('content') + '<br/>'
+						},{
+							xtype: 'button',
+							text: 'View Full Article',
+					
+							handler: function() {
+								openLink(record.get('link'));
+							}
+						}]
 					});
 				break;
 			case 'athletics':
@@ -61,31 +93,48 @@ Ext.define('SFASU.controller.Home.Feed', {
 				this.getFeed().push({
 					xtype: 'panel',
 					title: record.get('title'),
-					html: '<h3>' + record.get('title') + '</h3>' 
-						+ '<img style="float: right;" src="' + record.get('image') + '" width="50%"/>'
-						+ record.get('content'),
 					scrollable: true,
-					styleHtmlContent: true
+					styleHtmlContent: true,
+					items: [{
+						html: '<h3>' + record.get('title') + '</h3>'
+							+ Ext.Date.format(record.get('publishedDate'), 'l, F j, Y') 
+							+ '<br/><br/>'
+							+ '<img style="float: right;" src="' + record.get('image') + '" width="50%"/>'
+							+ record.get('content') + '<br/>'
+					},{
+						xtype: 'button',
+						text: 'View Full Article',
+					
+						handler: function() {
+							openLink(record.get('link'));
+						}
+					}]
 				});
 				break;
 			case 'video':
-				//console.log('Video');
-				Ext.util.openLink(record.get('link'));
-				
+				openLink(record.get('link'));
 				break;
 			case 'twitter':
 				//console.log('Twitter');
-			
 				this.hideAxe();
 				this.getFeed().push({
 					xtype: 'panel',
 					title: '@' + record.get('postedBy'),
-					html: '<img src="' + record.get('image') + '" style="float: left; padding-right: 5px;" />'
-						+ '<h3>@' + record.get('postedBy') + '</h3>'
-						+ '<h3>' + record.get('title') + '</h3>'
-						+ 'Posted: ' + Ext.Date.format(record.get('publishedDate'), 'g:i a l, F j, Y'),
 					scrollable: true,
-					styleHtmlContent: true
+					styleHtmlContent: true,
+					items: [{
+						html: '<img src="' + record.get('image') + '" style="float: left; padding-right: 5px;" />'
+							+ '<h3>@' + record.get('postedBy') + '</h3>'
+							+ '<h3>' + record.get('title') + '</h3>'
+							+ 'Posted: ' + Ext.Date.format(record.get('publishedDate'), 'g:i a l, F j, Y')
+					},{
+						xtype: 'button',
+						text: 'View Tweet on Twittter',
+					
+						handler: function() {
+							openLink(record.get('link'));
+						}
+					}]
 				});
 				break;
 			default:

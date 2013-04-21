@@ -12,7 +12,7 @@ Ext.define('SFASU.model.News', {
 			{ name: 'thumbnail', type: 'string'},
 			{ name: 'width', type: 'string'},
 			{ name: 'height', type: 'string'},
-			{ name: 'publishedDate', type: 'date'},
+			{ name: 'publishedDate', type: 'date'}
         ],
 		idProperty: 'link'
     }

@@ -9,18 +9,15 @@ Ext.define('SFASU.view.Athletics.Sport.Bio.Main', {
 		
 		items: [
 			{
-				xtype: 'athletics_sport_bio_plaque',
+				xtype: 'athletics_sport_bio_plaque'
 			},
 			{
 				xtype: 'list',
-				items: [
-					{
-						xtype: 'listitemheader',
-						cls: 'dark',
-						html: 'Bio'
-					}
-					
-				]
+				items: [{
+					xtype: 'listitemheader',
+					cls: 'dark',
+					html: 'Bio'
+				}]
 			},
 			{
 				scrollable: true,
@@ -29,13 +26,11 @@ Ext.define('SFASU.view.Athletics.Sport.Bio.Main', {
 			},
 			{
 				xtype: 'list',
-				items: [
-					{
-						xtype: 'listitemheader',
-						cls: 'dark',
-						html: 'Hometown'
-					}
-				]
+				items: [{
+					xtype: 'listitemheader',
+					cls: 'dark',
+					html: 'Hometown'
+				}]
 			}
 		]
 	}

@@ -20,6 +20,6 @@ Ext.define('SFASU.view.Athletics.Sport.Roster', {
 		
 		emptyText: '<p class="no-searches">No roster found.</p>',
 		
-		itemTpl: '{last_name}, {first_name} <tpl if="number != null">(#{number})</tpl>',
+		itemTpl: '{last_name}, {first_name} <tpl if="number != null">(#{number})</tpl>'
     }
 });

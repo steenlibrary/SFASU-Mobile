@@ -15,29 +15,23 @@ Ext.define('SFASU.view.Library.Account', {
 			
 			fields: ['name', 'id', 'url'],
 			
-			data: [
-				{
-					name: 'My Favorites',
-					id: 'Favorites',
-					url: 'http://library.sfasu.edu/find/MyResearch/Favorites'
-				},
-				{
-					name: 'My Checked Out Items',
-					id: 'CheckedOut',
-					url: 'http://library.sfasu.edu/find/MyResearch/CheckedOut'
-				},
-				{
-					name: 'My Holds',
-					id: 'Holds',
-					url: 'http://library.sfasu.edu/find/MyResearch/Holds'
-				},
-				{
-					name: 'My Fines',
-					id: 'Fines',
-					url: 'http://library.sfasu.edu/find/MyResearch/Fines'
-				},
-			]
+			data: [{
+				name: 'My Favorites',
+				id: 'Favorites',
+				url: 'http://library.sfasu.edu/find/MyResearch/Favorites'
+			},{
+				name: 'My Checked Out Items',
+				id: 'CheckedOut',
+				url: 'http://library.sfasu.edu/find/MyResearch/CheckedOut'
+			},{
+				name: 'My Holds',
+				id: 'Holds',
+				url: 'http://library.sfasu.edu/find/MyResearch/Holds'
+			},{
+				name: 'My Fines',
+				id: 'Fines',
+				url: 'http://library.sfasu.edu/find/MyResearch/Fines'
+			}]
 		}
-	
     }
 });
